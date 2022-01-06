@@ -25,7 +25,9 @@ export const {
     },
     space: {},
     sizes,
-    fontSizes: {},
+    fontSizes: {
+      base: "16px",
+    },
     fonts: {
       fredokaOne: "'Fredoka One', cursive",
       poppins: "'Poppins', sans-serif",

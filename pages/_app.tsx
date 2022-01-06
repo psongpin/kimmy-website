@@ -6,6 +6,7 @@ import { globalCss, config } from "../stitches.config";
 const globalStyles = globalCss(...opinionated, {
   "html, body": {
     fontFamily: config.theme.fonts.poppins,
+    fontSize: config.theme.fontSizes.base,
   },
 });
 
