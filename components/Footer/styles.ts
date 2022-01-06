@@ -4,6 +4,7 @@ export const FooterFrame = styled("footer", {
   textAlign: "center",
   color: "$primary",
   paddingY: 28,
+  marginTop: "auto",
 });
 
 export const CopyrightText = styled("p", {

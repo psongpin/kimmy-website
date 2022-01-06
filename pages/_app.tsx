@@ -1,15 +1,16 @@
 import type { AppProps } from "next/app";
 
+import { AppFrame } from "components/AppLayout";
 import Footer from "components/Footer";
 import globalStyles from "styles/global";
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
   return (
-    <div>
+    <AppFrame>
       <Component {...pageProps} />
       <Footer />
-    </div>
+    </AppFrame>
   );
 }
 
