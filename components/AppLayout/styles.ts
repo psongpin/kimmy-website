@@ -5,3 +5,7 @@ export const AppFrame = styled("div", {
   display: "flex",
   flexDirection: "column",
 });
+
+export const ContentFrame = styled("main", {
+  minHeight: "100vh",
+});

@@ -1,1 +1,1 @@
-export { AppFrame } from "./styles";
+export { AppFrame, ContentFrame } from "./styles";
