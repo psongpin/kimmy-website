@@ -22,6 +22,7 @@ export const {
       primary: "#524EB7",
       secondary: "#CBACEB",
       white: "#FFFFFF",
+      babyBlue: "#DEEAFE",
     },
     space: {},
     sizes,
