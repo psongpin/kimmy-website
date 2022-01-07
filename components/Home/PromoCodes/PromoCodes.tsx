@@ -15,15 +15,20 @@ interface QueryData {
 }
 
 const PromoCodes: React.FC = () => {
-  const { data, loading, error, fetchMore } = useQuery<
-    QueryData,
-    QueryCouponsConnectionArgs
-  >(GET_COUPONS, {
-    variables: { first: 10 },
-    notifyOnNetworkStatusChange: true,
-  });
+  const { data, fetchMore } = useQuery<QueryData, QueryCouponsConnectionArgs>(
+    GET_COUPONS,
+    {
+      variables: { first: 10 },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
 
-  console.log(data, loading, error, fetchMore);
+  const onReachEnd = () => {
+    if (data && data.couponsConnection.pageInfo.hasNextPage) {
+      const lastCouponId = data.couponsConnection.pageInfo.endCursor;
+      fetchMore({ variables: { first: 10, after: lastCouponId } });
+    }
+  };
 
   return (
     <PromoCodesSection>
@@ -32,12 +37,6 @@ const PromoCodes: React.FC = () => {
       </Container>
 
       <div>
-        {loading && (
-          <Container>
-            <p>loading...</p>
-          </Container>
-        )}
-
         {data && (
           <>
             {data.couponsConnection.edges.length ? (
@@ -47,6 +46,7 @@ const PromoCodes: React.FC = () => {
                 slidesOffsetBefore={16}
                 slidesOffsetAfter={16}
                 spaceBetween={36}
+                onReachEnd={onReachEnd}
               >
                 {data.couponsConnection.edges.map((couponEdge) => (
                   <SwiperSlide key={couponEdge.node.id}>

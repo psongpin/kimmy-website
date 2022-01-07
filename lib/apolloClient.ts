@@ -6,7 +6,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
-import { concatPagination } from "@apollo/client/utilities";
+import { relayStylePagination } from "@apollo/client/utilities";
 import merge from "deepmerge";
 import isEqual from "lodash/isEqual";
 
@@ -25,7 +25,7 @@ function createApolloClient() {
       typePolicies: {
         Query: {
           fields: {
-            allPosts: concatPagination(),
+            couponsConnection: relayStylePagination(),
           },
         },
       },
