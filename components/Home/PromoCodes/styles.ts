@@ -41,6 +41,23 @@ export const Discount = styled("div", {
 export const SponsorInfo = styled("div", {
   color: "$pink",
   paddingLeft: 20,
+
+  "p:first-child": {
+    marginBottom: 8,
+  },
+
+  a: {
+    textDecoration: "none",
+    color: "$pink",
+
+    "&:hover": {
+      textDecoration: "underline",
+    },
+
+    svg: {
+      marginLeft: 4,
+    },
+  },
 });
 
 export const CopyButton = styled("button", {
@@ -54,10 +71,10 @@ export const CopyButton = styled("button", {
   transition: "all 0.3s ease-in-out",
 
   "&:hover": {
-    opacity: 0.6,
+    opacity: 0.8,
   },
 
   "&:focus": {
-    opacity: 0.3,
+    opacity: 0.6,
   },
 });

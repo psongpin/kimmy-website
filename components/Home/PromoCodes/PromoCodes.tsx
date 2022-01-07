@@ -1,20 +1,30 @@
+import "swiper/css";
 import { A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { useQuery } from "@apollo/client";
 
 import Container from "components/common/Container";
+import { GET_COUPONS } from "lib/queries/promo";
+import { Query, QueryCouponsConnectionArgs } from "lib/api";
 
-import {
-  CopyButton,
-  Discount,
-  PromoCodeFrame,
-  PromoCodeInfo,
-  PromoCodesHeading,
-  PromoCodesSection,
-  SponsorInfo,
-} from "./styles";
+import PromoCode from "./PromoCode";
+import { PromoCodesHeading, PromoCodesSection } from "./styles";
+
+interface QueryData {
+  couponsConnection: Query["couponsConnection"];
+}
 
 const PromoCodes: React.FC = () => {
+  const { data, loading, error, fetchMore } = useQuery<
+    QueryData,
+    QueryCouponsConnectionArgs
+  >(GET_COUPONS, {
+    variables: { first: 10 },
+    notifyOnNetworkStatusChange: true,
+  });
+
+  console.log(data, loading, error, fetchMore);
+
   return (
     <PromoCodesSection>
       <Container>
@@ -22,30 +32,40 @@ const PromoCodes: React.FC = () => {
       </Container>
 
       <div>
-        <Swiper
-          modules={[A11y]}
-          slidesPerView={1.4}
-          slidesOffsetBefore={16}
-          spaceBetween={36}
-        >
-          <SwiperSlide>
-            <PromoCodeFrame>
-              <PromoCodeInfo>
-                <Discount>
-                  <p>10%</p>
-                  <p>off</p>
-                </Discount>
+        {loading && (
+          <Container>
+            <p>loading...</p>
+          </Container>
+        )}
 
-                <SponsorInfo>
-                  <p>Stogatech</p>
-                  <p>code: STOGATECH</p>
-                </SponsorInfo>
-              </PromoCodeInfo>
-
-              <CopyButton>Copy</CopyButton>
-            </PromoCodeFrame>
-          </SwiperSlide>
-        </Swiper>
+        {data && (
+          <>
+            {data.couponsConnection.edges.length ? (
+              <Swiper
+                modules={[A11y]}
+                slidesPerView={1.4}
+                slidesOffsetBefore={16}
+                slidesOffsetAfter={16}
+                spaceBetween={36}
+              >
+                {data.couponsConnection.edges.map((couponEdge) => (
+                  <SwiperSlide key={couponEdge.node.id}>
+                    <PromoCode
+                      title={couponEdge.node.title}
+                      discountText={couponEdge.node.discountText}
+                      storeUrl={couponEdge.node.storeUrl}
+                      code={couponEdge.node.code}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <Container>
+                <p>No codes available.</p>
+              </Container>
+            )}
+          </>
+        )}
       </div>
     </PromoCodesSection>
   );
