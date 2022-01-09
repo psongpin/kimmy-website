@@ -7,11 +7,59 @@ export const HomeFrame = styled("div", {
   marginX: "auto",
   boxShadow:
     "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+  backgroundColor: "$babyBlue",
   display: "flex",
   flexDirection: "column",
 });
 
+export const TopContentFrame = styled("div", {
+  backgroundColor: "$white",
+  overflow: "hidden",
+  paddingBottom: 32,
+  borderBottomLeftRadius: 100,
+  minHeight: 300,
+  position: "relative",
+});
+
+export const SemiCircle = styled("div", {
+  backgroundColor: "$primary",
+  height: 400,
+  marginX: -22,
+  marginTop: -272,
+  borderRadius: "100%",
+});
+
+export const AvatarFrame = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: -90,
+});
+
+export const Avatar = styled("div", {
+  width: 128,
+  height: 128,
+  borderRadius: "100%",
+  backgroundColor: "$white",
+  position: "relative",
+  marginBottom: 12,
+});
+
+export const CreatorInfo = styled("div", {
+  textAlign: "center",
+  color: "$pink",
+
+  h1: {
+    fontSize: 20,
+    fontFamily: "$fredokaOne",
+    marginBottom: 4,
+  },
+
+  p: {
+    fontSize: 12,
+  },
+});
+
 export const BottomContentFrame = styled("div", {
-  backgroundColor: "$babyBlue",
   flex: 1,
 });
