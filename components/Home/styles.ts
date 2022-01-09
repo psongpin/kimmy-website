@@ -15,8 +15,8 @@ export const HomeFrame = styled("div", {
 export const TopContentFrame = styled("div", {
   backgroundColor: "$white",
   overflow: "hidden",
-  paddingBottom: 32,
-  borderBottomLeftRadius: 100,
+  paddingBottom: 50,
+  borderBottomLeftRadius: 90,
   minHeight: 300,
   position: "relative",
 });

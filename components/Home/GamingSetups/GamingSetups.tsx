@@ -1,5 +1,5 @@
 import "swiper/css";
-import { A11y } from "swiper";
+import { A11y, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@apollo/client";
 
@@ -41,13 +41,25 @@ const GamingSetups: React.FC = () => {
           <>
             {data.linkPostsConnection.edges.length ? (
               <Swiper
-                modules={[A11y]}
+                modules={[A11y, FreeMode]}
                 freeMode
-                slidesPerView={1.6}
                 slidesOffsetBefore={16}
                 slidesOffsetAfter={16}
-                spaceBetween={36}
                 onReachEnd={onReachEnd}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1.25,
+                    spaceBetween: 20,
+                  },
+                  640: {
+                    slidesPerView: 1.35,
+                    spaceBetween: 24,
+                  },
+                  768: {
+                    slidesPerView: 1.6,
+                    spaceBetween: 36,
+                  },
+                }}
               >
                 {data.linkPostsConnection.edges.map((linkPostEdge) => (
                   <SwiperSlide key={linkPostEdge.node.id}>
