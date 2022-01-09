@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 
 import Container from "../components/common/Container";
 import { BottomContentFrame, HomeFrame, PromoCodes } from "components/Home";
+import GamingSetups from "components/Home/GamingSetups";
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
       </Container>
 
       <BottomContentFrame>
+        <GamingSetups />
         <PromoCodes />
       </BottomContentFrame>
     </HomeFrame>

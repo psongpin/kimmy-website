@@ -64,6 +64,7 @@ export const CopyButton = styled("button", {
   height: 36,
   backgroundColor: "$pink",
   color: "$white",
+  fontFamily: "$fredokaOne",
   width: "100%",
   paddingX: 20,
   borderRadius: 30,

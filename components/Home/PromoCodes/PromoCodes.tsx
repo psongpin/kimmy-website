@@ -42,7 +42,8 @@ const PromoCodes: React.FC = () => {
             {data.couponsConnection.edges.length ? (
               <Swiper
                 modules={[A11y]}
-                slidesPerView={1.4}
+                freeMode
+                slidesPerView={1.6}
                 slidesOffsetBefore={16}
                 slidesOffsetAfter={16}
                 spaceBetween={36}
