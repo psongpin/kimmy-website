@@ -72,10 +72,10 @@ export const CopyButton = styled("button", {
   transition: "all 0.3s ease-in-out",
 
   "&:hover": {
-    opacity: 0.8,
+    opacity: 0.6,
   },
 
   "&:focus": {
-    opacity: 0.6,
+    opacity: 0.4,
   },
 });

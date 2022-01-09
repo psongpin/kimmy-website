@@ -5,12 +5,14 @@ import {
   AvatarFrame,
   BottomContentFrame,
   CreatorInfo,
+  GamingSetups,
   HomeFrame,
+  Links,
   PromoCodes,
   SemiCircle,
   TopContentFrame,
 } from "components/Home";
-import GamingSetups from "components/Home/GamingSetups";
+import Container from "components/common/Container";
 import Footer from "components/Footer";
 
 const Home: NextPage = () => {
@@ -22,10 +24,14 @@ const Home: NextPage = () => {
           <Avatar />
         </AvatarFrame>
 
-        <CreatorInfo>
-          <h1>kimifaery</h1>
-          <p>Content Creator</p>
-        </CreatorInfo>
+        <Container>
+          <CreatorInfo>
+            <h1>kimifaery</h1>
+            <p>Content Creator</p>
+          </CreatorInfo>
+
+          <Links />
+        </Container>
       </TopContentFrame>
 
       <BottomContentFrame>
