@@ -14,6 +14,10 @@ export const HomeFrame = styled("div", {
 
 export const TopContentFrame = styled("div", {
   backgroundColor: "$white",
+  backgroundImage: "url(/images/ghost.svg)",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "115% 80%",
+  backgroundSize: "320px",
   overflow: "hidden",
   paddingBottom: 50,
   borderBottomLeftRadius: 90,
@@ -23,9 +27,13 @@ export const TopContentFrame = styled("div", {
 
 export const SemiCircle = styled("div", {
   backgroundColor: "$primary",
+  backgroundImage: "url(/images/topSparkles.png)",
+  backgroundRepeat: "no-repeat",
+  backgroundPositionX: "center",
+  backgroundPositionY: "90%",
   height: 400,
   marginX: -22,
-  marginTop: -272,
+  marginTop: -280,
   borderRadius: "100%",
 });
 
