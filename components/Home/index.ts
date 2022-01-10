@@ -3,7 +3,6 @@ export {
   BottomContentFrame,
   TopContentFrame,
   SemiCircle,
-  Avatar,
   AvatarFrame,
   CreatorInfo,
 } from "./styles";

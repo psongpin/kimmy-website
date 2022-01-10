@@ -34,15 +34,7 @@ export const AvatarFrame = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   marginTop: -90,
-});
-
-export const Avatar = styled("div", {
-  width: 128,
-  height: 128,
-  borderRadius: "100%",
-  backgroundColor: "$white",
-  position: "relative",
-  marginBottom: 12,
+  marginBottom: 16,
 });
 
 export const CreatorInfo = styled("div", {

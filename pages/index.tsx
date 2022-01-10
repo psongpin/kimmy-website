@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 
 import {
-  Avatar,
   AvatarFrame,
   BottomContentFrame,
   CreatorInfo,
@@ -55,7 +55,14 @@ const Home: NextPage = () => {
       <TopContentFrame>
         <SemiCircle />
         <AvatarFrame>
-          <Avatar />
+          <Image
+            src="/images/avatar.png"
+            alt="kimifaery"
+            layout="fixed"
+            width={147}
+            height={128}
+            quality={100}
+          />
         </AvatarFrame>
 
         <Container>
