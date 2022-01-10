@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 import {
   Avatar,
@@ -14,6 +14,40 @@ import {
 } from "components/Home";
 import Container from "components/common/Container";
 import Footer from "components/Footer";
+import { addApolloState, initializeApollo } from "lib/apolloClient";
+import { Query, QueryCouponsConnectionArgs, QueryLinkPostsArgs } from "lib/api";
+import { GET_GAMING_SETUPS } from "lib/queries/posts";
+import { GET_COUPONS } from "lib/queries/promo";
+
+type QueryData = {
+  linkPostsConnection: Query["linkPostsConnection"];
+  couponsConnection: Query["couponsConnection"];
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const apolloClient = initializeApollo();
+
+  await apolloClient.query<
+    QueryData["linkPostsConnection"],
+    QueryLinkPostsArgs
+  >({
+    query: GET_GAMING_SETUPS,
+    variables: { first: 10, where: { tags_contains_some: ["Gaming Setup"] } },
+  });
+
+  await apolloClient.query<
+    QueryData["couponsConnection"],
+    QueryCouponsConnectionArgs
+  >({
+    query: GET_COUPONS,
+    variables: { first: 10 },
+  });
+
+  return addApolloState(apolloClient, {
+    props: {},
+    revalidate: 1,
+  });
+};
 
 const Home: NextPage = () => {
   return (

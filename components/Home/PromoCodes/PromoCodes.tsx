@@ -10,9 +10,9 @@ import { Query, QueryCouponsConnectionArgs } from "lib/api";
 import PromoCode from "./PromoCode";
 import { PromoCodesHeading, PromoCodesSection } from "./styles";
 
-interface QueryData {
+type QueryData = {
   couponsConnection: Query["couponsConnection"];
-}
+};
 
 const PromoCodes: React.FC = () => {
   const { data, fetchMore } = useQuery<QueryData, QueryCouponsConnectionArgs>(

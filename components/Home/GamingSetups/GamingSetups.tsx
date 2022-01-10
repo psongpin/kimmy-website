@@ -10,9 +10,9 @@ import { GET_GAMING_SETUPS } from "lib/queries/posts";
 import GamingSetup from "./GamingSetup";
 import { GamingSetupsHeading, GamingSetupsSection } from "./styles";
 
-interface QueryData {
+type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
-}
+};
 
 const GamingSetups: React.FC = () => {
   const { data, fetchMore } = useQuery<QueryData, QueryLinkPostsArgs>(
