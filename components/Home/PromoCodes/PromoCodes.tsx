@@ -4,24 +4,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@apollo/client";
 
 import Container from "components/common/Container";
+import { CarouselLoaderOverlay, Loader } from "components/common/Loader";
 import { GET_COUPONS } from "lib/queries/promo";
 import { Query, QueryCouponsConnectionArgs } from "lib/api";
 
 import PromoCode from "./PromoCode";
-import { PromoCodesHeading, PromoCodesSection } from "./styles";
+import {
+  PromoCodesCarouselFrame,
+  PromoCodesHeading,
+  PromoCodesNoData,
+  PromoCodesSection,
+} from "./styles";
 
 type QueryData = {
   couponsConnection: Query["couponsConnection"];
 };
 
 const PromoCodes: React.FC = () => {
-  const { data, fetchMore } = useQuery<QueryData, QueryCouponsConnectionArgs>(
-    GET_COUPONS,
-    {
-      variables: { first: 10 },
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  const { data, loading, error, fetchMore } = useQuery<
+    QueryData,
+    QueryCouponsConnectionArgs
+  >(GET_COUPONS, {
+    variables: { first: 10 },
+    notifyOnNetworkStatusChange: true,
+  });
 
   const onReachEnd = () => {
     if (data && data.couponsConnection.pageInfo.hasNextPage) {
@@ -36,7 +42,19 @@ const PromoCodes: React.FC = () => {
         <PromoCodesHeading>Promo Codes</PromoCodesHeading>
       </Container>
 
-      <div>
+      <PromoCodesCarouselFrame>
+        {loading && (
+          <CarouselLoaderOverlay>
+            <Loader />
+          </CarouselLoaderOverlay>
+        )}
+
+        {error && (
+          <PromoCodesNoData>
+            Something went wrong while getting data.
+          </PromoCodesNoData>
+        )}
+
         {data && (
           <>
             {data.couponsConnection.edges.length ? (
@@ -74,12 +92,12 @@ const PromoCodes: React.FC = () => {
               </Swiper>
             ) : (
               <Container>
-                <p>No codes available.</p>
+                <PromoCodesNoData>No codes available.</PromoCodesNoData>
               </Container>
             )}
           </>
         )}
-      </div>
+      </PromoCodesCarouselFrame>
     </PromoCodesSection>
   );
 };

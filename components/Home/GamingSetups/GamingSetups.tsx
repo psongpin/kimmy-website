@@ -4,24 +4,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@apollo/client";
 
 import Container from "components/common/Container";
+import { CarouselLoaderOverlay, Loader } from "components/common/Loader";
 import { Query, QueryLinkPostsArgs } from "lib/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
 
 import GamingSetup from "./GamingSetup";
-import { GamingSetupsHeading, GamingSetupsSection } from "./styles";
+import {
+  GamingSetupsCarouselFrame,
+  GamingSetupsHeading,
+  GamingSetupsNoData,
+  GamingSetupsSection,
+} from "./styles";
 
 type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
 };
 
 const GamingSetups: React.FC = () => {
-  const { data, fetchMore } = useQuery<QueryData, QueryLinkPostsArgs>(
-    GET_GAMING_SETUPS,
-    {
-      variables: { first: 10, where: { tags_contains_some: ["Gaming Setup"] } },
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  const { data, loading, error, fetchMore } = useQuery<
+    QueryData,
+    QueryLinkPostsArgs
+  >(GET_GAMING_SETUPS, {
+    variables: { first: 10, where: { tags_contains_some: ["Gaming Setup"] } },
+    notifyOnNetworkStatusChange: true,
+  });
 
   const onReachEnd = () => {
     if (data && data.linkPostsConnection.pageInfo.hasNextPage) {
@@ -36,7 +42,19 @@ const GamingSetups: React.FC = () => {
         <GamingSetupsHeading>Gaming Setups</GamingSetupsHeading>
       </Container>
 
-      <div>
+      <GamingSetupsCarouselFrame>
+        {loading && (
+          <CarouselLoaderOverlay>
+            <Loader />
+          </CarouselLoaderOverlay>
+        )}
+
+        {error && (
+          <GamingSetupsNoData>
+            Something went wrong while getting data.
+          </GamingSetupsNoData>
+        )}
+
         {data && (
           <>
             {data.linkPostsConnection.edges.length ? (
@@ -75,12 +93,12 @@ const GamingSetups: React.FC = () => {
               </Swiper>
             ) : (
               <Container>
-                <p>No setup available.</p>
+                <GamingSetupsNoData>No setup available.</GamingSetupsNoData>
               </Container>
             )}
           </>
         )}
-      </div>
+      </GamingSetupsCarouselFrame>
     </GamingSetupsSection>
   );
 };

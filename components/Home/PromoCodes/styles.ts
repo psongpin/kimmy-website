@@ -79,3 +79,11 @@ export const CopyButton = styled("button", {
     opacity: 0.4,
   },
 });
+
+export const PromoCodesCarouselFrame = styled("div", {
+  position: "relative",
+});
+
+export const PromoCodesNoData = styled("p", {
+  color: "$pink",
+});

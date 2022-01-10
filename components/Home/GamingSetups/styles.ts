@@ -78,3 +78,11 @@ export const GamingSetupInfo = styled("div", {
     fontSize: 12,
   },
 });
+
+export const GamingSetupsCarouselFrame = styled("div", {
+  position: "relative",
+});
+
+export const GamingSetupsNoData = styled("p", {
+  color: "$pink",
+});
