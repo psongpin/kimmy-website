@@ -5,6 +5,7 @@ export const PageLinksHead = styled("div", {
   position: "relative",
   textAlign: "center",
   height: 120,
+  overflow: "hidden",
 
   "@md": {
     height: 200,

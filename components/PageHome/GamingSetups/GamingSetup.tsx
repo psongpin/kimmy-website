@@ -26,7 +26,7 @@ const GamingSetup: React.FC<GamingSetupProps> = ({
 }) => {
   return (
     <GamingSetupFrame>
-      <Link href={redirectLink || `/post/${id}`}>
+      <Link href={redirectLink || `/link/${id}`}>
         <a>
           <Image
             src={thumbnailUrl}

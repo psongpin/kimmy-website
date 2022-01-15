@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 
-import { PageLinksHead, SemiCircle } from "components/PageLinks";
+import { Links, PageLinksHead, SemiCircle } from "components/PageLinks";
+import Footer from "components/Footer";
 
 const PageLinks: NextPage = () => {
   return (
@@ -11,6 +12,10 @@ const PageLinks: NextPage = () => {
         <p>kimifaery</p>
         <h1>Links</h1>
       </PageLinksHead>
+
+      <Links />
+
+      <Footer />
     </div>
   );
 };

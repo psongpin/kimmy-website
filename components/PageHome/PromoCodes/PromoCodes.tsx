@@ -57,7 +57,7 @@ const PromoCodes: React.FC = () => {
 
         {data && (
           <>
-            {data.couponsConnection.edges.length ? (
+            {data.couponsConnection.edges.length > 0 ? (
               <Swiper
                 modules={[A11y, FreeMode]}
                 freeMode

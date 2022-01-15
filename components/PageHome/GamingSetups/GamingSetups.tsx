@@ -57,7 +57,7 @@ const GamingSetups: React.FC = () => {
 
         {data && (
           <>
-            {data.linkPostsConnection.edges.length ? (
+            {data.linkPostsConnection.edges.length > 0 ? (
               <Swiper
                 modules={[A11y, FreeMode]}
                 freeMode
