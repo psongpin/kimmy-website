@@ -41,6 +41,7 @@ export const LinksGrid = styled("div", {
           bottom: 0,
           left: 0,
           right: 0,
+          zIndex: 2,
           background:
             "linear-gradient(0deg, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0) 100%)",
         },
