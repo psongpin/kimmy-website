@@ -13,7 +13,7 @@ import {
   Sparkle,
   SparkleContainer,
   TopContentFrame,
-} from "components/Home";
+} from "components/PageHome";
 import Container from "components/common/Container";
 import Footer from "components/Footer";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
