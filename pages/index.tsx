@@ -10,6 +10,8 @@ import {
   Links,
   PromoCodes,
   SemiCircle,
+  Sparkle,
+  SparkleContainer,
   TopContentFrame,
 } from "components/Home";
 import Container from "components/common/Container";
@@ -23,6 +25,38 @@ type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
   couponsConnection: Query["couponsConnection"];
 };
+
+const sparkles: {
+  color: "yellow" | "blue" | "green" | "red";
+  width: number;
+  height: number;
+  path: string;
+}[] = [
+  {
+    color: "yellow",
+    width: 18,
+    height: 18,
+    path: "/images/sparkleYellow.svg",
+  },
+  {
+    color: "blue",
+    width: 18,
+    height: 18,
+    path: "/images/sparkleBlue.svg",
+  },
+  {
+    color: "green",
+    width: 10,
+    height: 10,
+    path: "/images/sparkleGreen.svg",
+  },
+  {
+    color: "red",
+    width: 10,
+    height: 10,
+    path: "/images/sparkleRed.svg",
+  },
+];
 
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
@@ -67,7 +101,22 @@ const Home: NextPage = () => {
 
         <Container>
           <CreatorInfo>
-            <h1>kimifaery</h1>
+            <SparkleContainer>
+              <h1>kimifaery</h1>
+
+              {sparkles.map((sparkle) => (
+                <Sparkle key={sparkle.path} color={sparkle.color}>
+                  <Image
+                    src={sparkle.path}
+                    alt="kimifaery"
+                    layout="fixed"
+                    width={sparkle.width}
+                    height={sparkle.height}
+                    quality={100}
+                  />
+                </Sparkle>
+              ))}
+            </SparkleContainer>
             <p>Content Creator</p>
           </CreatorInfo>
 

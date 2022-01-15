@@ -60,6 +60,34 @@ export const CreatorInfo = styled("div", {
   },
 });
 
+export const SparkleContainer = styled("div", {
+  position: "relative",
+});
+
+export const Sparkle = styled("div", {
+  position: "absolute",
+  inset: 0,
+
+  variants: {
+    color: {
+      yellow: {
+        left: -120,
+      },
+      blue: {
+        left: 120,
+      },
+      green: {
+        top: -8,
+        left: -145,
+      },
+      red: {
+        top: -8,
+        left: 145,
+      },
+    },
+  },
+});
+
 export const BottomContentFrame = styled("div", {
   flex: 1,
 });

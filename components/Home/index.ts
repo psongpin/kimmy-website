@@ -5,6 +5,8 @@ export {
   SemiCircle,
   AvatarFrame,
   CreatorInfo,
+  SparkleContainer,
+  Sparkle,
 } from "./styles";
 export { default as PromoCodes } from "./PromoCodes";
 export { default as GamingSetups } from "./GamingSetups";
