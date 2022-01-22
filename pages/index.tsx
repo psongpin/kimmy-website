@@ -14,7 +14,7 @@ import {
   SparkleContainer,
   TopContentFrame,
 } from "components/PageHome";
-import Container from "components/common/Container";
+import { Container } from "components/common";
 import Footer from "components/Footer";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { Query, QueryCouponsConnectionArgs, QueryLinkPostsArgs } from "lib/api";

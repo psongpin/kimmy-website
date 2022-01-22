@@ -72,7 +72,7 @@ const Cube = styled("div", {
   },
 });
 
-export const Loader: React.FC = () => {
+const Loader: React.FC = () => {
   return (
     <LoaderFrame>
       <Cube className="sk-cube1" />
@@ -82,3 +82,5 @@ export const Loader: React.FC = () => {
     </LoaderFrame>
   );
 };
+
+export default Loader;

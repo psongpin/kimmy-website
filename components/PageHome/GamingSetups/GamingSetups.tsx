@@ -3,8 +3,7 @@ import { A11y, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@apollo/client";
 
-import Container from "components/common/Container";
-import { CarouselLoaderOverlay, Loader } from "components/common/Loader";
+import { Container, Loader, CarouselLoaderOverlay } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
 

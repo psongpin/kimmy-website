@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 
-import Container from "components/common/Container";
-import { Loader } from "components/common/Loader";
+import { Container, Loader } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
 import LinkPost from "./LinkPost";
@@ -38,20 +37,22 @@ const Links: React.FC = () => {
       {data && (
         <>
           {data.linkPostsConnection.edges.length > 0 ? (
-            <LinksGrid
-              hasNextPage={data.linkPostsConnection.pageInfo.hasNextPage}
-            >
-              {data.linkPostsConnection.edges.map((linkPostEdge) => (
-                <LinkPost
-                  key={linkPostEdge.node.id}
-                  id={linkPostEdge.node.id}
-                  redirectLink={linkPostEdge.node.redirectLink}
-                  title={linkPostEdge.node.title}
-                  thumbnailUrl={linkPostEdge.node.thumbnail.url}
-                  numOfSubLinkPosts={linkPostEdge.node.subLinkPosts.length}
-                />
-              ))}
-            </LinksGrid>
+            <>
+              <LinksGrid
+                hasNextPage={data.linkPostsConnection.pageInfo.hasNextPage}
+              >
+                {data.linkPostsConnection.edges.map((linkPostEdge) => (
+                  <LinkPost
+                    key={linkPostEdge.node.id}
+                    id={linkPostEdge.node.id}
+                    redirectLink={linkPostEdge.node.redirectLink}
+                    title={linkPostEdge.node.title}
+                    thumbnailUrl={linkPostEdge.node.thumbnail.url}
+                    numOfSubLinkPosts={linkPostEdge.node.subLinkPosts.length}
+                  />
+                ))}
+              </LinksGrid>
+            </>
           ) : (
             <LinkPostError>No posts available.</LinkPostError>
           )}
