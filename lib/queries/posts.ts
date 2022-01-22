@@ -6,7 +6,12 @@ export const GET_GAMING_SETUPS = gql`
     $after: String
     $first: Int
   ) {
-    linkPostsConnection(where: $where, after: $after, first: $first) {
+    linkPostsConnection(
+      where: $where
+      after: $after
+      first: $first
+      orderBy: createdAt_DESC
+    ) {
       pageInfo {
         endCursor
         hasNextPage
@@ -35,7 +40,12 @@ export const GET_GAMING_SETUPS = gql`
 
 export const GET_LINK_POSTS = gql`
   query getLinkPosts($where: LinkPostWhereInput, $after: String, $first: Int) {
-    linkPostsConnection(where: $where, after: $after, first: $first) {
+    linkPostsConnection(
+      where: $where
+      after: $after
+      first: $first
+      orderBy: createdAt_DESC
+    ) {
       pageInfo {
         endCursor
         hasNextPage
