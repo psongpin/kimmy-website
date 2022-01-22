@@ -26,6 +26,7 @@ function createApolloClient() {
         Query: {
           fields: {
             couponsConnection: relayStylePagination(),
+            linkPostsConnection: relayStylePagination(),
           },
         },
       },

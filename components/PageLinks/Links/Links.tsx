@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 
-import { Container, Loader } from "components/common";
+import { Button, Container, Flexbox, Loader } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
 import LinkPost from "./LinkPost";
@@ -20,20 +20,19 @@ const Links: React.FC = () => {
     notifyOnNetworkStatusChange: true,
   });
 
+  const onLoadMore = () => {
+    if (data) {
+      const { endCursor } = data.linkPostsConnection.pageInfo;
+      fetchMore({
+        variables: {
+          after: endCursor,
+        },
+      });
+    }
+  };
+
   return (
-    <Container>
-      {loading && (
-        <LinksLoader>
-          <Loader />
-        </LinksLoader>
-      )}
-
-      {error && (
-        <LinkPostError>
-          Something went wrong while fetching posts.
-        </LinkPostError>
-      )}
-
+    <Container css={{ marginBottom: 40 }}>
       {data && (
         <>
           {data.linkPostsConnection.edges.length > 0 ? (
@@ -52,11 +51,35 @@ const Links: React.FC = () => {
                   />
                 ))}
               </LinksGrid>
+
+              {data.linkPostsConnection.pageInfo.hasNextPage && !loading && (
+                <Flexbox
+                  css={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: 20,
+                  }}
+                >
+                  <Button onClick={onLoadMore}>Load more post</Button>
+                </Flexbox>
+              )}
             </>
           ) : (
             <LinkPostError>No posts available.</LinkPostError>
           )}
         </>
+      )}
+
+      {loading && (
+        <LinksLoader>
+          <Loader />
+        </LinksLoader>
+      )}
+
+      {error && (
+        <LinkPostError>
+          Something went wrong while fetching posts.
+        </LinkPostError>
       )}
     </Container>
   );
