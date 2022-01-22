@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ExternalLink } from "components/common/Icon";
+import { Button } from "components/common";
 import { GamingSetupLinkOverlay } from "components/PageHome/GamingSetups/styles";
 
 import {
@@ -51,9 +52,9 @@ const LinkPost: React.FC<LinkPostProps> = ({
           </LinkPostInfo>
 
           <GamingSetupLinkOverlay>
-            <button>
+            <Button>
               View link <ExternalLink width={14} height={14} />
-            </button>
+            </Button>
           </GamingSetupLinkOverlay>
         </a>
       </Link>

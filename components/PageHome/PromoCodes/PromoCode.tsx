@@ -1,14 +1,9 @@
 import { useState } from "react";
 
 import { ExternalLink } from "components/common/Icon";
+import { Button } from "components/common";
 
-import {
-  CopyButton,
-  Discount,
-  PromoCodeFrame,
-  PromoCodeInfo,
-  SponsorInfo,
-} from "./styles";
+import { Discount, PromoCodeFrame, PromoCodeInfo, SponsorInfo } from "./styles";
 
 type PromoCodeProps = {
   title: string;
@@ -46,9 +41,9 @@ const ClipboardCopy: React.FC<ClipboardCopyProps> = ({ copyText }) => {
   };
 
   return (
-    <CopyButton onClick={handleCopyClick}>
+    <Button onClick={handleCopyClick} css={{ width: "100%" }}>
       {isCopied ? "Copied!" : "Copy"}
-    </CopyButton>
+    </Button>
   );
 };
 
