@@ -15,17 +15,21 @@ type QueryData = {
 const Links: React.FC = () => {
   const router = useRouter();
   const tag = router.query.tag;
+  const search = router.query.search;
+
+  const variables = {
+    first: 12,
+    where: {
+      ...(!tag || tag === "All" ? {} : { tags_contains_all: [tag as string] }),
+      ...(search ? { title_contains: search as string } : {}),
+    },
+  };
 
   const { data, loading, error, fetchMore } = useQuery<
     QueryData,
     QueryLinkPostsArgs
   >(GET_LINK_POSTS, {
-    variables: {
-      first: 12,
-      ...(!tag || tag === "All"
-        ? { where: {} }
-        : { where: { tags_contains_all: [tag as string] } }),
-    },
+    variables,
     notifyOnNetworkStatusChange: true,
   });
 

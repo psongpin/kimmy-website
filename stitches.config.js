@@ -30,6 +30,8 @@ export const {
       darkPink: "#DA6486",
       green: "#A4E5DF",
       yellow: "#FED47E",
+      offWhite: "#F8F8FC",
+      gray: "#707070",
     },
     space: {},
     sizes,

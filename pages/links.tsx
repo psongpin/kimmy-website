@@ -4,6 +4,7 @@ import {
   FilterTag,
   Links,
   PageLinksHead,
+  SearchPost,
   SemiCircle,
 } from "components/PageLinks";
 import Footer from "components/Footer";
@@ -21,18 +22,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const apolloClient = initializeApollo();
 
   const tag = context.query?.tag;
+  const search = context.query?.search;
+
+  const variables = {
+    first: 12,
+    where: {
+      ...(!tag || tag === "All" ? {} : { tags_contains_all: [tag as string] }),
+      ...(search ? { title_contains: search as string } : {}),
+    },
+  };
 
   await apolloClient.query<
     QueryData["linkPostsConnection"],
     QueryLinkPostsArgs
   >({
     query: GET_LINK_POSTS,
-    variables: {
-      first: 12,
-      ...(!tag || tag === "All"
-        ? { where: {} }
-        : { where: { tags_contains_all: [tag as string] } }),
-    },
+    variables,
   });
 
   return addApolloState(apolloClient, {
@@ -51,6 +56,7 @@ const PageLinks: NextPage = () => {
       </PageLinksHead>
 
       <Container css={{ marginBottom: 40 }}>
+        <SearchPost />
         <FilterTag />
         <Links />
       </Container>
