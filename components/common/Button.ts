@@ -72,6 +72,7 @@ const Button = styled("button", {
   defaultVariants: {
     size: "md",
     color: "pink",
+    outlined: false,
   },
 });
 
