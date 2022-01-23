@@ -1,7 +1,7 @@
 import { styled } from "stitches.config";
 
 export const PageLinksHead = styled("div", {
-  marginBottom: 60,
+  marginBottom: 40,
   position: "relative",
   textAlign: "center",
   height: 120,
@@ -9,6 +9,7 @@ export const PageLinksHead = styled("div", {
 
   "@md": {
     height: 200,
+    marginBottom: 60,
   },
 
   "@lg": {

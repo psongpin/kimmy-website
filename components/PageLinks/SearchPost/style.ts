@@ -8,6 +8,7 @@ export const SearchPostFrame = styled("div", {
 
   form: {
     display: "block",
+    position: "relative",
     width: "100%",
     maxWidth: 1000,
   },
@@ -16,11 +17,12 @@ export const SearchPostFrame = styled("div", {
     display: "inline-block",
     backgroundColor: "$offWhite",
     width: "100%",
-    height: 72,
+    height: 40,
     borderRadius: 9999,
-    paddingX: 40,
+    paddingLeft: 20,
+    paddingRight: 50,
     paddingY: 0,
-    fontSize: 24,
+    fontSize: 16,
     color: "$purple",
 
     "&::placeholder": {
@@ -51,6 +53,13 @@ export const SearchPostFrame = styled("div", {
 
     "::placeholder": {
       color: "$gray",
+    },
+
+    "@md": {
+      height: 72,
+      fontSize: 24,
+      paddingLeft: 40,
+      paddingRight: 80,
     },
   },
 });
