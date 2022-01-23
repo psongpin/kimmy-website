@@ -24,6 +24,7 @@ export const SearchPostFrame = styled("div", {
     paddingY: 0,
     fontSize: 16,
     color: "$purple",
+    fontFamily: "$fredokaOne",
 
     "&::placeholder": {
       color: "$gray",

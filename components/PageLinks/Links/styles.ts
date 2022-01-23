@@ -135,3 +135,37 @@ export const LinkPostSublinkCount = styled("p", {
     marginTop: 10,
   },
 });
+
+export const TagsFrame = styled("div", {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+  padding: 10,
+  rowGap: 4,
+
+  "@md": {
+    padding: 20,
+  },
+});
+
+export const Tag = styled("div", {
+  color: "$white",
+  fontSize: 10,
+  paddingX: 6,
+  paddingY: 4,
+  borderRadius: 9999,
+
+  "span:first-child": {
+    marginRight: 8,
+  },
+
+  "@md": {
+    fontSize: 12,
+    paddingX: 10,
+    paddingY: 6,
+  },
+});

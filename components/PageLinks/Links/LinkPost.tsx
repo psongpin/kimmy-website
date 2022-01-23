@@ -11,6 +11,8 @@ import {
   LinkPostInfo,
   LinkPostSublinkCount,
   LinkPostTitle,
+  Tag,
+  TagsFrame,
 } from "./styles";
 
 type LinkPostProps = {
@@ -19,6 +21,14 @@ type LinkPostProps = {
   title: string;
   thumbnailUrl: string;
   numOfSubLinkPosts: number;
+  tags: string[];
+};
+
+const tagMarks: Record<string, string> = {
+  Favorites: `❤️`,
+  "Gaming Setup": `🎮`,
+  Partnerships: `👍`,
+  "Must Haves": `⭐️`,
 };
 
 const LinkPost: React.FC<LinkPostProps> = ({
@@ -27,6 +37,7 @@ const LinkPost: React.FC<LinkPostProps> = ({
   title,
   thumbnailUrl,
   numOfSubLinkPosts,
+  tags,
 }) => {
   return (
     <LinkPostFrame>
@@ -51,8 +62,27 @@ const LinkPost: React.FC<LinkPostProps> = ({
             )}
           </LinkPostInfo>
 
+          <TagsFrame>
+            {tags.map((tag) => (
+              <Tag
+                key={tag}
+                css={{
+                  backgroundColor: {
+                    Favorites: "$green",
+                    "Gaming Setup": "$blue",
+                    Partnerships: "$yellow",
+                    "Must Haves": "$purple",
+                  }[tag],
+                }}
+              >
+                <span>{tagMarks[tag]}</span>
+                <span>{tag}</span>
+              </Tag>
+            ))}
+          </TagsFrame>
+
           <GamingSetupLinkOverlay>
-            <Button>
+            <Button size={{ "@initial": "sm", "@md": "md" }}>
               View link <ExternalLink width={14} height={14} />
             </Button>
           </GamingSetupLinkOverlay>

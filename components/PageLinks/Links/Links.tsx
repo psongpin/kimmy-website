@@ -61,6 +61,7 @@ const Links: React.FC = () => {
                     title={linkPostEdge.node.title}
                     thumbnailUrl={linkPostEdge.node.thumbnail.url}
                     numOfSubLinkPosts={linkPostEdge.node.subLinkPosts.length}
+                    tags={linkPostEdge.node.tags}
                   />
                 ))}
               </LinksGrid>
