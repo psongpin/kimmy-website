@@ -41,7 +41,7 @@ const ClipboardCopy: React.FC<ClipboardCopyProps> = ({ copyText }) => {
   };
 
   return (
-    <Button onClick={handleCopyClick} css={{ width: "100%" }}>
+    <Button size="sm" onClick={handleCopyClick} css={{ width: "100%" }}>
       {isCopied ? "Copied!" : "Copy"}
     </Button>
   );

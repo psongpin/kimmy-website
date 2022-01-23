@@ -137,14 +137,23 @@ export const LinkPostSublinkCount = styled("p", {
 });
 
 export const TagsGrid = styled("div", {
-  textAlign: "center",
-  marginBottom: 64,
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  rowGap: 10,
+  columnGap: 20,
+  marginBottom: 52,
 
   "& > *": {
-    marginRight: 20,
+    display: "inline-block",
 
     "&:last-item": {
       marginRight: 0,
     },
+  },
+
+  "@md": {
+    justifyContent: "center",
   },
 });
