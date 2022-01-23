@@ -1,6 +1,11 @@
 import { GetServerSideProps, NextPage } from "next";
 
-import { Links, PageLinksHead, SemiCircle } from "components/PageLinks";
+import {
+  FilterTag,
+  Links,
+  PageLinksHead,
+  SemiCircle,
+} from "components/PageLinks";
 import Footer from "components/Footer";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
@@ -44,6 +49,7 @@ const PageLinks: NextPage = () => {
         <h1>Links</h1>
       </PageLinksHead>
 
+      <FilterTag />
       <Links />
 
       <Footer />

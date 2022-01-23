@@ -1,5 +1,7 @@
 import { styled } from "stitches.config";
 
+const btnColors = ["pink", "green", "blue", "yellow", "purple"];
+
 const Button = styled("button", {
   color: "$white",
   fontFamily: "$fredokaOne",
@@ -27,23 +29,18 @@ const Button = styled("button", {
     },
     color: {
       pink: {
-        backgroundColor: "$pink",
         borderColor: "$pink",
       },
       green: {
-        backgroundColor: "$green",
         borderColor: "$green",
       },
       blue: {
-        backgroundColor: "$blue",
         borderColor: "$blue",
       },
       yellow: {
-        backgroundColor: "$yellow",
         borderColor: "$yellow",
       },
       purple: {
-        backgroundColor: "$purple",
         borderColor: "$purple",
       },
     },
@@ -55,41 +52,21 @@ const Button = styled("button", {
   },
 
   compoundVariants: [
-    {
-      color: "pink",
+    ...btnColors.map((color) => ({
+      color,
       outlined: true,
       css: {
-        color: "$pink",
+        color: `$${color}`,
       },
-    },
-    {
-      color: "green",
-      outlined: true,
+    })),
+
+    ...btnColors.map((color) => ({
+      color,
+      outlined: false,
       css: {
-        color: "$green",
+        backgroundColor: `$${color}`,
       },
-    },
-    {
-      color: "blue",
-      outlined: true,
-      css: {
-        color: "$blue",
-      },
-    },
-    {
-      color: "yellow",
-      outlined: true,
-      css: {
-        color: "$yellow",
-      },
-    },
-    {
-      color: "purple",
-      outlined: true,
-      css: {
-        color: "$purple",
-      },
-    },
+    })),
   ],
 
   defaultVariants: {

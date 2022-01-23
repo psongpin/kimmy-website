@@ -6,7 +6,6 @@ import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
 
 import LinkPost from "./LinkPost";
-import FilterTag from "./FilterTag";
 import { LinkPostError, LinksGrid, LinksLoader } from "./styles";
 
 type QueryData = {
@@ -43,8 +42,6 @@ const Links: React.FC = () => {
 
   return (
     <Container css={{ marginBottom: 40 }}>
-      <FilterTag />
-
       {data && (
         <>
           {data.linkPostsConnection.edges.length > 0 ? (
