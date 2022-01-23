@@ -135,3 +135,16 @@ export const LinkPostSublinkCount = styled("p", {
     marginTop: 10,
   },
 });
+
+export const TagsGrid = styled("div", {
+  textAlign: "center",
+  marginBottom: 64,
+
+  "& > *": {
+    marginRight: 20,
+
+    "&:last-item": {
+      marginRight: 0,
+    },
+  },
+});

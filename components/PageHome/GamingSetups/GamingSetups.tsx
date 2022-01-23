@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@apollo/client";
 
 import { Container, Loader, CarouselLoaderOverlay } from "components/common";
-import { Query, QueryLinkPostsArgs } from "lib/api";
+import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
 
 import GamingSetup from "./GamingSetup";

@@ -25,8 +25,17 @@ function createApolloClient() {
       typePolicies: {
         Query: {
           fields: {
-            couponsConnection: relayStylePagination(),
-            linkPostsConnection: relayStylePagination(),
+            couponsConnection: relayStylePagination([
+              "first",
+              "after",
+              "orderBy",
+            ]),
+            linkPostsConnection: relayStylePagination([
+              "where",
+              "first",
+              "after",
+              "orderBy",
+            ]),
           },
         },
       },

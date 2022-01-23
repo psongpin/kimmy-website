@@ -17,7 +17,11 @@ import {
 import { Container } from "components/common";
 import Footer from "components/Footer";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
-import { Query, QueryCouponsConnectionArgs, QueryLinkPostsArgs } from "lib/api";
+import {
+  Query,
+  QueryCouponsConnectionArgs,
+  QueryLinkPostsArgs,
+} from "lib/types/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
 import { GET_COUPONS } from "lib/queries/promo";
 

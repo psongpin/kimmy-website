@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 
 import { Container, CarouselLoaderOverlay, Loader } from "components/common";
 import { GET_COUPONS } from "lib/queries/promo";
-import { Query, QueryCouponsConnectionArgs } from "lib/api";
+import { Query, QueryCouponsConnectionArgs } from "lib/types/api";
 
 import PromoCode from "./PromoCode";
 import {

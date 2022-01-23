@@ -1,10 +1,12 @@
 import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 
 import { Button, Container, Flexbox, Loader } from "components/common";
-import { Query, QueryLinkPostsArgs } from "lib/api";
+import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
-import LinkPost from "./LinkPost";
 
+import LinkPost from "./LinkPost";
+import FilterTag from "./FilterTag";
 import { LinkPostError, LinksGrid, LinksLoader } from "./styles";
 
 type QueryData = {
@@ -12,11 +14,19 @@ type QueryData = {
 };
 
 const Links: React.FC = () => {
+  const router = useRouter();
+  const tag = router.query.tag;
+
   const { data, loading, error, fetchMore } = useQuery<
     QueryData,
     QueryLinkPostsArgs
   >(GET_LINK_POSTS, {
-    variables: { first: 12 },
+    variables: {
+      first: 12,
+      ...(!tag || tag === "All"
+        ? { where: {} }
+        : { where: { tags_contains_all: [tag as string] } }),
+    },
     notifyOnNetworkStatusChange: true,
   });
 
@@ -33,6 +43,8 @@ const Links: React.FC = () => {
 
   return (
     <Container css={{ marginBottom: 40 }}>
+      <FilterTag />
+
       {data && (
         <>
           {data.linkPostsConnection.edges.length > 0 ? (
