@@ -2,7 +2,7 @@ import { styled } from "stitches.config";
 
 export const FooterFrame = styled("footer", {
   textAlign: "center",
-  color: "$primary",
+  color: "$purple",
   paddingY: 28,
 });
 
@@ -22,7 +22,7 @@ export const FooterLink = styled("a", {
   alignItems: "center",
   justifyContent: "center",
   marginX: 8,
-  color: "$primary",
+  color: "$purple",
   opacity: 1,
   transition: "all 0.3s ease-in-out",
 

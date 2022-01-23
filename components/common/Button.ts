@@ -43,8 +43,8 @@ const Button = styled("button", {
         borderColor: "$yellow",
       },
       purple: {
-        backgroundColor: "$primary",
-        borderColor: "$primary",
+        backgroundColor: "$purple",
+        borderColor: "$purple",
       },
     },
     outlined: {
@@ -87,7 +87,7 @@ const Button = styled("button", {
       color: "purple",
       outlined: true,
       css: {
-        color: "$primary",
+        color: "$purple",
       },
     },
   ],

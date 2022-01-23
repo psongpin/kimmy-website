@@ -45,7 +45,7 @@ export const PageLinksHead = styled("div", {
 });
 
 export const SemiCircle = styled("div", {
-  backgroundColor: "$primary",
+  backgroundColor: "$purple",
   backgroundImage: "url(/images/topSparkles.png)",
   backgroundRepeat: "no-repeat",
   backgroundPositionX: "center",

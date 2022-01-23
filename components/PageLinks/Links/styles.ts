@@ -103,7 +103,7 @@ export const LinkPostImage = styled("div", {
 });
 
 export const LinkPostInfo = styled("div", {
-  backgroundColor: "$secondary",
+  backgroundColor: "$babyPurple",
   paddingX: 14,
   paddingY: 8,
   marginTop: "auto",

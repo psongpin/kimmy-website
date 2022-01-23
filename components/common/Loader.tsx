@@ -47,7 +47,7 @@ const Cube = styled("div", {
     left: "0",
     width: "100%",
     height: "100%",
-    backgroundColor: "$primary",
+    backgroundColor: "$purple",
     animation: `${foldCube} 2.4s infinite linear both`,
     transformOrigin: "100% 100%",
   },

@@ -51,7 +51,7 @@ const Links: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <LinksGridIcon css={{ backgroundColor: "$secondary" }}>
+          <LinksGridIcon css={{ backgroundColor: "$babyPurple" }}>
             <Image
               src="/images/tiktok.svg"
               alt="links"
@@ -59,7 +59,7 @@ const Links: React.FC = () => {
               height={30}
             />
           </LinksGridIcon>
-          <LinksGridText css={{ color: "$secondary" }}>tiktok</LinksGridText>
+          <LinksGridText css={{ color: "$babyPurple" }}>tiktok</LinksGridText>
         </a>
       </LinkGridItem>
 
