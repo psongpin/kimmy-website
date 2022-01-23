@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
-import { Button, Container, Flexbox, Loader } from "components/common";
+import { Button, Flexbox, Loader } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
 
@@ -41,7 +41,7 @@ const Links: React.FC = () => {
   };
 
   return (
-    <Container css={{ marginBottom: 40 }}>
+    <div>
       {data && (
         <>
           {data.linkPostsConnection.edges.length > 0 ? (
@@ -90,7 +90,7 @@ const Links: React.FC = () => {
           Something went wrong while fetching posts.
         </LinkPostError>
       )}
-    </Container>
+    </div>
   );
 };
 

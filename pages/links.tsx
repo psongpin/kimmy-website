@@ -10,6 +10,7 @@ import Footer from "components/Footer";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
+import { Container } from "components/common";
 
 type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
@@ -49,8 +50,10 @@ const PageLinks: NextPage = () => {
         <h1>Links</h1>
       </PageLinksHead>
 
-      <FilterTag />
-      <Links />
+      <Container css={{ marginBottom: 40 }}>
+        <FilterTag />
+        <Links />
+      </Container>
 
       <Footer />
     </div>
