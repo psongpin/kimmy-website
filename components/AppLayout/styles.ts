@@ -5,7 +5,6 @@ export const AppFrame = styled("div", {
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  maxWidth: 1900,
   marginX: "auto",
 });
 

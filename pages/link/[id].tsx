@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
 
+import { Navigation } from "components/PageLink";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { GET_LINK_POST, GET_LINK_POST_IDS } from "lib/queries/posts";
 import { Query, QueryLinkPostArgs, QueryLinkPostsArgs } from "lib/types/api";
@@ -55,7 +56,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const PageLink: NextPage = () => {
-  return <div>test</div>;
+  return (
+    <div>
+      <Navigation />
+    </div>
+  );
 };
 
 export default PageLink;
