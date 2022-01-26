@@ -18,20 +18,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo();
 
   try {
-    const { data } = await apolloClient.query<
-      QueryData["linkPostsConnection"],
-      QueryLinkPostsArgs
-    >({
+    const { data } = await apolloClient.query<QueryData, QueryLinkPostsArgs>({
       query: GET_LINK_POST_IDS,
       variables: {
         first: 5,
       },
     });
 
-    console.log(data);
+    const paths = data.linkPostsConnection.edges.map((linkPostEdge) => ({
+      params: { id: linkPostEdge.node.id },
+    }));
 
-    // const paths = data
-    return { paths: [], fallback: true };
+    console.log(paths);
+
+    return { paths, fallback: true };
   } catch (error) {
     return { paths: [], fallback: true };
   }
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   console.log(id);
 
-  await apolloClient.query<QueryData["linkPost"], QueryLinkPostArgs>({
+  await apolloClient.query<QueryData, QueryLinkPostArgs>({
     query: GET_LINK_POST,
     variables: { where: { id } },
   });

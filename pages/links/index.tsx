@@ -32,10 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 
-  await apolloClient.query<
-    QueryData["linkPostsConnection"],
-    QueryLinkPostsArgs
-  >({
+  await apolloClient.query<QueryData, QueryLinkPostsArgs>({
     query: GET_LINK_POSTS,
     variables,
   });

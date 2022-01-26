@@ -65,18 +65,12 @@ const sparkles: {
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
-  await apolloClient.query<
-    QueryData["linkPostsConnection"],
-    QueryLinkPostsArgs
-  >({
+  await apolloClient.query<QueryData, QueryLinkPostsArgs>({
     query: GET_GAMING_SETUPS,
     variables: { first: 10, where: { tags_contains_some: ["Gaming Setup"] } },
   });
 
-  await apolloClient.query<
-    QueryData["couponsConnection"],
-    QueryCouponsConnectionArgs
-  >({
+  await apolloClient.query<QueryData, QueryCouponsConnectionArgs>({
     query: GET_COUPONS,
     variables: { first: 10 },
   });
