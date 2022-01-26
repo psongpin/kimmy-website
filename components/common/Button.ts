@@ -5,11 +5,15 @@ const btnColors = ["pink", "green", "blue", "yellow", "purple"];
 const Button = styled("button", {
   color: "$white",
   fontFamily: "$fredokaOne",
+  textDecoration: "none",
   paddingX: 20,
   borderRadius: 30,
   border: "2px solid",
-  display: "inline-block",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
   opacity: 1,
+  cursor: "pointer",
   transition: "all 0.3s ease-in-out",
 
   "&:hover": {

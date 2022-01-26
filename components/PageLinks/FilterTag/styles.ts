@@ -11,6 +11,7 @@ export const TagsGrid = styled("div", {
 
   "& > *": {
     display: "inline-block",
+    textDecoration: "none",
 
     "&:last-item": {
       marginRight: 0,

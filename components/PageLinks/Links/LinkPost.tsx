@@ -3,12 +3,12 @@ import Link from "next/link";
 
 import { ExternalLink } from "components/common/Icon";
 import { Button } from "components/common";
-import { GamingSetupLinkOverlay } from "components/PageHome/GamingSetups/styles";
 
 import {
   LinkPostFrame,
   LinkPostImage,
   LinkPostInfo,
+  LinkPostOverlay,
   LinkPostSublinkCount,
   LinkPostTitle,
   Tag,
@@ -81,11 +81,12 @@ const LinkPost: React.FC<LinkPostProps> = ({
             ))}
           </TagsFrame>
 
-          <GamingSetupLinkOverlay>
+          <LinkPostOverlay>
             <Button size={{ "@initial": "sm", "@md": "md" }}>
-              View link <ExternalLink width={14} height={14} />
+              View link
+              <ExternalLink width={14} height={14} style={{ marginLeft: 8 }} />
             </Button>
-          </GamingSetupLinkOverlay>
+          </LinkPostOverlay>
         </a>
       </Link>
     </LinkPostFrame>
