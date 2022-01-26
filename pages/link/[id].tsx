@@ -5,6 +5,10 @@ import { Navigation } from "components/PageLink";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { GET_LINK_POST, GET_LINK_POST_IDS } from "lib/queries/posts";
 import { Query, QueryLinkPostArgs, QueryLinkPostsArgs } from "lib/types/api";
+import SubLinks from "components/PageLink/SubLinks";
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { Container } from "components/common";
 
 type QueryData = {
   linkPost: Query["linkPost"];
@@ -56,9 +60,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const PageLink: NextPage = () => {
+  const router = useRouter();
+  const { id } = router.query as Params;
+
+  const { data, loading, error } = useQuery<QueryData, QueryLinkPostArgs>(
+    GET_LINK_POST,
+    { variables: { where: { id } } }
+  );
+
   return (
     <div>
       <Navigation />
+
+      <Container>
+        {data?.linkPost && (
+          <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
+        )}
+      </Container>
     </div>
   );
 };
