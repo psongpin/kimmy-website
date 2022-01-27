@@ -1364,12 +1364,13 @@ export type LinkPost = Node & {
   publishedAt?: Maybe<Scalars["DateTime"]>;
   /** User that last published this document */
   publishedBy?: Maybe<User>;
-  redirectLink: Scalars["String"];
+  redirectLink?: Maybe<Scalars["String"]>;
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
   subLinkPosts: Array<SubLinkPost>;
   tags: Array<Scalars["String"]>;
+  themeColor?: Maybe<Color>;
   thumbnail: Asset;
   title: Scalars["String"];
   /** The time the document was updated */
@@ -1446,9 +1447,10 @@ export type LinkPostConnection = {
 
 export type LinkPostCreateInput = {
   createdAt?: InputMaybe<Scalars["DateTime"]>;
-  redirectLink: Scalars["String"];
+  redirectLink?: InputMaybe<Scalars["String"]>;
   subLinkPosts?: InputMaybe<SubLinkPostCreateManyInlineInput>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
+  themeColor?: InputMaybe<ColorInput>;
   thumbnail: AssetCreateOneInlineInput;
   title: Scalars["String"];
   updatedAt?: InputMaybe<Scalars["DateTime"]>;
@@ -1632,6 +1634,7 @@ export type LinkPostUpdateInput = {
   redirectLink?: InputMaybe<Scalars["String"]>;
   subLinkPosts?: InputMaybe<SubLinkPostUpdateManyInlineInput>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
+  themeColor?: InputMaybe<ColorInput>;
   thumbnail?: InputMaybe<AssetUpdateOneInlineInput>;
   title?: InputMaybe<Scalars["String"]>;
 };
@@ -1656,6 +1659,7 @@ export type LinkPostUpdateManyInlineInput = {
 export type LinkPostUpdateManyInput = {
   redirectLink?: InputMaybe<Scalars["String"]>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
+  themeColor?: InputMaybe<ColorInput>;
   title?: InputMaybe<Scalars["String"]>;
 };
 
@@ -3855,7 +3859,7 @@ export type SubLinkPost = Node & {
   publishedAt?: Maybe<Scalars["DateTime"]>;
   /** User that last published this document */
   publishedBy?: Maybe<User>;
-  redirectLink: Scalars["String"];
+  redirectLink?: Maybe<Scalars["String"]>;
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
@@ -3926,7 +3930,7 @@ export type SubLinkPostConnection = {
 export type SubLinkPostCreateInput = {
   ckxy4msa81p6c01wegrti3npd?: InputMaybe<LinkPostCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars["DateTime"]>;
-  redirectLink: Scalars["String"];
+  redirectLink?: InputMaybe<Scalars["String"]>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
   thumbnail: AssetCreateOneInlineInput;
   title: Scalars["String"];

@@ -2,7 +2,6 @@ import { styled } from "stitches.config";
 
 export const NavigationFrame = styled("div", {
   height: 66,
-  backgroundColor: "$purple",
 });
 
 export const NavigationText = styled("button", {

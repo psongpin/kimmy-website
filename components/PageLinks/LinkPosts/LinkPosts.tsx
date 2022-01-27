@@ -57,7 +57,7 @@ const LinkPosts: React.FC = () => {
                   <LinkPost
                     key={linkPostEdge.node.id}
                     id={linkPostEdge.node.id}
-                    redirectLink={linkPostEdge.node.redirectLink}
+                    redirectLink={linkPostEdge.node.redirectLink || ""}
                     title={linkPostEdge.node.title}
                     thumbnailUrl={linkPostEdge.node.thumbnail.url}
                     numOfSubLinkPosts={linkPostEdge.node.subLinkPosts.length}

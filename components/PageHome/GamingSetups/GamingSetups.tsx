@@ -84,7 +84,7 @@ const GamingSetups: React.FC = () => {
                       id={linkPostEdge.node.id}
                       title={linkPostEdge.node.title}
                       thumbnailUrl={linkPostEdge.node.thumbnail.url}
-                      redirectLink={linkPostEdge.node.redirectLink}
+                      redirectLink={linkPostEdge.node.redirectLink || ""}
                       numOfSubLinkPosts={linkPostEdge.node.subLinkPosts.length}
                     />
                   </SwiperSlide>

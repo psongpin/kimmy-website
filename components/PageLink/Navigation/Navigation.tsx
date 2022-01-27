@@ -5,11 +5,15 @@ import { ChevronLeft } from "components/common/Icon";
 
 import { NavigationFrame, NavigationText } from "./styles";
 
-const Navigation: React.FC = () => {
+type NavigationProps = {
+  backgroundColor: string;
+};
+
+const Navigation: React.FC<NavigationProps> = ({ backgroundColor }) => {
   const router = useRouter();
 
   return (
-    <NavigationFrame>
+    <NavigationFrame css={{ backgroundColor: backgroundColor || "$purple" }}>
       <Container
         css={{
           height: "100%",

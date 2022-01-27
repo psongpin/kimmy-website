@@ -41,7 +41,7 @@ export const AvatarFrame = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  marginTop: -90,
+  marginTop: -70,
   marginBottom: 16,
 });
 
@@ -57,34 +57,6 @@ export const CreatorInfo = styled("div", {
 
   p: {
     fontSize: 12,
-  },
-});
-
-export const SparkleContainer = styled("div", {
-  position: "relative",
-});
-
-export const Sparkle = styled("div", {
-  position: "absolute",
-  inset: 0,
-
-  variants: {
-    color: {
-      yellow: {
-        left: -120,
-      },
-      blue: {
-        left: 120,
-      },
-      green: {
-        top: -8,
-        left: -145,
-      },
-      red: {
-        top: -8,
-        left: 145,
-      },
-    },
   },
 });
 

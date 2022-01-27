@@ -76,6 +76,13 @@ export const GET_LINK_POST = gql`
   query getLinkPost($where: LinkPostWhereUniqueInput!) {
     linkPost(where: $where) {
       id
+      title
+      themeColor {
+        hex
+      }
+      thumbnail {
+        url(transformation: { image: { resize: { height: 470, width: 470 } } })
+      }
       subLinkPosts(first: 99999) {
         id
         title

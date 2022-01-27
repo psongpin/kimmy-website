@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 
 import {
   FilterTag,
@@ -9,6 +10,7 @@ import {
 } from "components/PageLinks";
 import Footer from "components/Footer";
 import { Container } from "components/common";
+import { SparkleLeft, SparkleRight } from "components/common/Icon";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
@@ -48,7 +50,15 @@ const PageLinks: NextPage = () => {
       <PageLinksHead>
         <SemiCircle />
 
-        <p>kimifaery</p>
+        <p>
+          <Link href="/">
+            <a>
+              <SparkleLeft width={45} height={45} style={{ marginRight: 10 }} />
+              kimifaery
+              <SparkleRight width={45} height={45} style={{ marginLeft: 10 }} />
+            </a>
+          </Link>
+        </p>
         <h1>Links</h1>
       </PageLinksHead>
 

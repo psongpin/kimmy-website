@@ -1,14 +1,17 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
+import { useQuery } from "@apollo/client";
 
-import { Navigation } from "components/PageLink";
+import { Container, Loader } from "components/common";
+import { LinkPostBanner, Navigation, SubLinks } from "components/PageLink";
+import {
+  LinkPostError,
+  LinksLoader,
+} from "components/PageLinks/LinkPosts/styles";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { GET_LINK_POST, GET_LINK_POST_IDS } from "lib/queries/posts";
 import { Query, QueryLinkPostArgs, QueryLinkPostsArgs } from "lib/types/api";
-import SubLinks from "components/PageLink/SubLinks";
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import { Container } from "components/common";
 
 type QueryData = {
   linkPost: Query["linkPost"];
@@ -34,8 +37,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       params: { id: linkPostEdge.node.id },
     }));
 
-    console.log(paths);
-
     return { paths, fallback: true };
   } catch (error) {
     return { paths: [], fallback: true };
@@ -45,8 +46,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { id } = context.params as Params;
   const apolloClient = initializeApollo();
-
-  console.log(id);
 
   await apolloClient.query<QueryData, QueryLinkPostArgs>({
     query: GET_LINK_POST,
@@ -70,11 +69,35 @@ const PageLink: NextPage = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation
+        backgroundColor={(data?.linkPost?.themeColor?.hex as string) || ""}
+      />
 
       <Container>
+        {loading && (
+          <LinksLoader>
+            <Loader />
+          </LinksLoader>
+        )}
+
+        {error && (
+          <LinkPostError>
+            Something went wrong while fetching posts.
+          </LinkPostError>
+        )}
+
         {data?.linkPost && (
-          <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
+          <>
+            <LinkPostBanner
+              title={data.linkPost.title}
+              thumbnailUrl={data.linkPost.thumbnail.url}
+              numOfSubLinkPosts={data.linkPost.subLinkPosts.length}
+              backgroundColor={
+                (data?.linkPost?.themeColor?.hex as string) || ""
+              }
+            />
+            <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
+          </>
         )}
       </Container>
     </div>

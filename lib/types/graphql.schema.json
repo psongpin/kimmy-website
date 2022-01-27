@@ -9668,13 +9668,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -9966,6 +9962,18 @@
             "deprecationReason": null
           },
           {
+            "name": "themeColor",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Color",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "thumbnail",
             "description": null,
             "args": [
@@ -10207,13 +10215,9 @@
             "name": "redirectLink",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -10246,6 +10250,18 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "themeColor",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ColorInput",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -11622,6 +11638,18 @@
             "deprecationReason": null
           },
           {
+            "name": "themeColor",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ColorInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "thumbnail",
             "description": null,
             "type": {
@@ -11834,6 +11862,18 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "themeColor",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ColorInput",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -28317,13 +28357,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -28739,13 +28775,9 @@
             "name": "redirectLink",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -35804,6 +35836,18 @@
             "deprecationReason": null
           },
           {
+            "name": "connectInput",
+            "description": "Specifies ConnectInput type name",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "connection",
             "description": "Link to the Main type of the connection",
             "type": {
@@ -35941,6 +35985,18 @@
             "type": {
               "kind": "ENUM",
               "name": "_FilterKind",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isComponent",
+            "description": "marks if type is a component",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null,
@@ -36410,6 +36466,18 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "componentParentFieldValue",
+            "description": "Specifies the value used to fill the parent_field column that's used to identify the parent field a component got created for",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,

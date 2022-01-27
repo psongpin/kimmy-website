@@ -14,7 +14,7 @@ export const GamingSetupsHeading = styled("h2", {
 export const GamingSetupLinkOverlay = styled("div", {
   position: "absolute",
   inset: 0,
-  zIndex: 1,
+  zIndex: 3,
   backgroundColor: "rgba(0, 0, 0, 0.5)",
   display: "flex",
   justifyContent: "center",
@@ -35,6 +35,16 @@ export const GamingSetupFrame = styled("div", {
     borderRadius: 20,
     position: "relative",
 
+    "&:before": {
+      content: "",
+      display: "block",
+      position: "absolute",
+      inset: 0,
+      zIndex: 1,
+      background:
+        "linear-gradient(0deg, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0) 40%)",
+    },
+
     [`&:hover ${GamingSetupLinkOverlay}`]: {
       opacity: 1,
     },
@@ -46,6 +56,7 @@ export const GamingSetupInfo = styled("div", {
   bottom: 24,
   left: 0,
   right: 0,
+  zIndex: 1,
   paddingX: 20,
   color: "$white",
 

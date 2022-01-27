@@ -29,10 +29,15 @@ export const PageLinksHead = styled("div", {
   p: {
     fontSize: 25,
     fontFamily: "$fredokaOne",
-    color: "$white",
+
     position: "relative",
     paddingTop: 20,
     marginBottom: 10,
+
+    a: {
+      color: "$white",
+      textDecoration: "none",
+    },
 
     "@md": {
       fontSize: 47,

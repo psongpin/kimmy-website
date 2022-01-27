@@ -20,7 +20,7 @@ const SubLinkPosts: React.FC<SubLinkPostsProps> = ({ subLinkPosts }) => {
               <SubLinkPost
                 key={subLinkPost.id}
                 id={subLinkPost.id}
-                redirectLink={subLinkPost.redirectLink}
+                redirectLink={subLinkPost.redirectLink || ""}
                 title={subLinkPost.title}
                 thumbnailUrl={subLinkPost.thumbnail.url}
                 tags={subLinkPost.tags}

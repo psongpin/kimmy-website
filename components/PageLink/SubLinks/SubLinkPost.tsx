@@ -37,7 +37,7 @@ const SubLinkPost: React.FC<SubLinkPostProps> = ({
 }) => {
   return (
     <LinkPostFrame>
-      <Link href={redirectLink || `/link/${id}`}>
+      <Link href={redirectLink || `/`}>
         <a>
           <LinkPostImage>
             <Image
