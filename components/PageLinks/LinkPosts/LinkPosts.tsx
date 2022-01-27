@@ -12,7 +12,7 @@ type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
 };
 
-const Links: React.FC = () => {
+const LinkPosts: React.FC = () => {
   const router = useRouter();
   const tag = router.query.tag;
   const search = router.query.search;
@@ -99,4 +99,4 @@ const Links: React.FC = () => {
   );
 };
 
-export default Links;
+export default LinkPosts;

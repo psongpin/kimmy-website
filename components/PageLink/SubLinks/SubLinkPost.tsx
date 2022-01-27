@@ -11,9 +11,9 @@ import {
   LinkPostTitle,
   Tag,
   TagsFrame,
-} from "components/PageLinks/Links/styles";
+} from "components/PageLinks/LinkPosts/styles";
 
-type LinkPostProps = {
+type SubLinkPostProps = {
   id: string;
   redirectLink: string;
   title: string;
@@ -28,7 +28,7 @@ const tagMarks: Record<string, string> = {
   "Must Haves": `⭐️`,
 };
 
-const LinkPost: React.FC<LinkPostProps> = ({
+const SubLinkPost: React.FC<SubLinkPostProps> = ({
   id,
   redirectLink,
   title,
@@ -84,4 +84,4 @@ const LinkPost: React.FC<LinkPostProps> = ({
   );
 };
 
-export default LinkPost;
+export default SubLinkPost;

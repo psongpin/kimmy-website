@@ -1,4 +1,7 @@
-import { LinkPostError, LinksGrid } from "components/PageLinks/Links/styles";
+import {
+  LinkPostError,
+  LinksGrid,
+} from "components/PageLinks/LinkPosts/styles";
 import { SubLinkPost as SubLinkPostType } from "lib/types/api";
 
 import SubLinkPost from "./SubLinkPost";

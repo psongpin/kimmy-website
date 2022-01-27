@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from "next";
 
 import {
   FilterTag,
-  Links,
+  LinkPosts,
   PageLinksHead,
   SearchPost,
   SemiCircle,
@@ -55,7 +55,7 @@ const PageLinks: NextPage = () => {
       <Container css={{ marginBottom: 40 }}>
         <SearchPost />
         <FilterTag />
-        <Links />
+        <LinkPosts />
       </Container>
 
       <Footer />
