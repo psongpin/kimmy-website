@@ -24,10 +24,10 @@ const Button = styled("button", {
     size: {
       sm: {
         height: 32,
-        fontSize: 16,
+        fontSize: 14,
       },
       md: {
-        height: 56,
+        height: 46,
         fontSize: 16,
       },
     },

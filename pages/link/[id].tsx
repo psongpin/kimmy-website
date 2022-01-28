@@ -4,6 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 import { useQuery } from "@apollo/client";
 
 import { Container, Loader } from "components/common";
+import Footer from "components/Footer";
 import { LinkPostBanner, Navigation, SubLinks } from "components/PageLink";
 import {
   LinkPostError,
@@ -100,6 +101,8 @@ const PageLink: NextPage = () => {
           </>
         )}
       </Container>
+
+      <Footer />
     </div>
   );
 };

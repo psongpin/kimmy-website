@@ -1,3 +1,4 @@
+import { Button } from "components/common";
 import { SparkleLeft, SparkleRight } from "components/common/Icon";
 import Image from "next/image";
 
@@ -40,7 +41,7 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
       >
         <BannerContentTop>
           <span>
-            <SparkleLeft width={45} height={45} style={{ marginRight: 10 }} />
+            <SparkleLeft style={{ marginRight: 10 }} />
             kimifaery
             <SparkleRight width={45} height={45} style={{ marginLeft: 10 }} />
           </span>
@@ -49,8 +50,8 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
               src="/images/avatar2.png"
               alt="kimifaery"
               layout="intrinsic"
-              width={116}
-              height={116}
+              width={90}
+              height={90}
             />
           </BannerContentAvatar>
         </BannerContentTop>
@@ -58,6 +59,13 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
         <BannerContentSubLinkNum>{`${numOfSubLinkPosts} item${
           numOfSubLinkPosts > 1 ? "s" : ""
         }`}</BannerContentSubLinkNum>
+
+        <Button
+          size={{ "@initial": "sm", "@md": "md" }}
+          css={{ width: "100%", maxWidth: 320 }}
+        >
+          View Setup
+        </Button>
       </BannerContentFrame>
     </BannerFrame>
   );
