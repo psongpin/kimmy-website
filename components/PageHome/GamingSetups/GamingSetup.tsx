@@ -46,7 +46,7 @@ const GamingSetup: React.FC<GamingSetupProps> = ({
 
           <GamingSetupLinkOverlay>
             <Button>
-              View link
+              View
               <ExternalLink width={14} height={14} style={{ marginLeft: 8 }} />
             </Button>
           </GamingSetupLinkOverlay>

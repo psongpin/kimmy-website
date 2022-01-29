@@ -83,7 +83,7 @@ const LinkPost: React.FC<LinkPostProps> = ({
 
           <LinkPostOverlay>
             <Button size={{ "@initial": "sm", "@md": "md" }}>
-              View link
+              View
               <ExternalLink width={14} height={14} style={{ marginLeft: 8 }} />
             </Button>
           </LinkPostOverlay>
