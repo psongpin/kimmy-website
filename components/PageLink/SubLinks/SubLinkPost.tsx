@@ -29,7 +29,6 @@ const tagMarks: Record<string, string> = {
 };
 
 const SubLinkPost: React.FC<SubLinkPostProps> = ({
-  id,
   redirectLink,
   title,
   thumbnailUrl,
@@ -74,7 +73,7 @@ const SubLinkPost: React.FC<SubLinkPostProps> = ({
 
           <LinkPostOverlay>
             <Button size={{ "@initial": "sm", "@md": "md" }}>
-              View link
+              View
               <ExternalLink width={14} height={14} style={{ marginLeft: 8 }} />
             </Button>
           </LinkPostOverlay>
