@@ -1,6 +1,8 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { Button } from "components/common";
 import { SparkleLeft, SparkleRight } from "components/common/Icon";
-import Image from "next/image";
 
 import {
   BannerContentAvatar,
@@ -17,6 +19,7 @@ type LinkPostBannerProps = {
   thumbnailUrl: string;
   numOfSubLinkPosts: number;
   backgroundColor: string;
+  viewUrl: string;
 };
 
 const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
@@ -24,6 +27,7 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
   thumbnailUrl,
   numOfSubLinkPosts,
   backgroundColor,
+  viewUrl,
 }) => {
   return (
     <BannerFrame>
@@ -60,12 +64,18 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
           numOfSubLinkPosts > 1 ? "s" : ""
         }`}</BannerContentSubLinkNum>
 
-        <Button
-          size={{ "@initial": "sm", "@md": "md" }}
-          css={{ width: "100%", maxWidth: 320 }}
-        >
-          View Setup
-        </Button>
+        {viewUrl && (
+          <Link href={viewUrl}>
+            <a>
+              <Button
+                size={{ "@initial": "sm", "@md": "md" }}
+                css={{ width: "100%", maxWidth: 320 }}
+              >
+                View Setup
+              </Button>
+            </a>
+          </Link>
+        )}
       </BannerContentFrame>
     </BannerFrame>
   );

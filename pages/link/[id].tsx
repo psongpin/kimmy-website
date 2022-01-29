@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { useQuery } from "@apollo/client";
+import { NextSeo } from "next-seo";
 
 import { Container, Loader } from "components/common";
 import Footer from "components/Footer";
@@ -69,41 +70,65 @@ const PageLink: NextPage = () => {
   );
 
   return (
-    <div>
-      <Navigation
-        backgroundColor={(data?.linkPost?.themeColor?.hex as string) || ""}
+    <>
+      <NextSeo
+        title={`Kimifaery Website - ${data?.linkPost?.title || "Post"}`}
+        description="Kimifaery's Personal Website"
+        canonical={`https://kimifaery.com/link/${data?.linkPost?.id}`}
+        openGraph={{
+          url: `https://kimifaery.com/link/${data?.linkPost?.id}`,
+          title: `Kimifaery Website - ${data?.linkPost?.title || "Post"}`,
+          description: "Kimifaery's Personal Website",
+          images: [
+            {
+              url:
+                data?.linkPost?.thumbnail.url ||
+                "https://kimifaery.com/images/kimifaery.png",
+              width: 300,
+              height: 300,
+              alt: data?.linkPost?.title || "Kimifaery's Personal Website",
+            },
+          ],
+        }}
       />
 
-      <Container>
-        {loading && (
-          <LinksLoader>
-            <Loader />
-          </LinksLoader>
-        )}
+      <div>
+        <Navigation
+          backgroundColor={(data?.linkPost?.themeColor?.hex as string) || ""}
+        />
 
-        {error && (
-          <LinkPostError>
-            Something went wrong while fetching posts.
-          </LinkPostError>
-        )}
+        <Container>
+          {loading && (
+            <LinksLoader>
+              <Loader />
+            </LinksLoader>
+          )}
 
-        {data?.linkPost && (
-          <>
-            <LinkPostBanner
-              title={data.linkPost.title}
-              thumbnailUrl={data.linkPost.thumbnail.url}
-              numOfSubLinkPosts={data.linkPost.subLinkPosts.length}
-              backgroundColor={
-                (data?.linkPost?.themeColor?.hex as string) || ""
-              }
-            />
-            <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
-          </>
-        )}
-      </Container>
+          {error && (
+            <LinkPostError>
+              Something went wrong while fetching posts.
+            </LinkPostError>
+          )}
 
-      <Footer />
-    </div>
+          {data?.linkPost && (
+            <>
+              <LinkPostBanner
+                title={data.linkPost.title}
+                thumbnailUrl={data.linkPost.thumbnail.url}
+                numOfSubLinkPosts={data.linkPost.subLinkPosts.length}
+                backgroundColor={
+                  (data?.linkPost?.themeColor?.hex as string) || ""
+                }
+                viewUrl={data.linkPost.instagramLink || ""}
+              />
+              <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
+            </>
+          )}
+        </Container>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 

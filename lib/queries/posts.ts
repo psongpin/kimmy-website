@@ -77,6 +77,7 @@ export const GET_LINK_POST = gql`
     linkPost(where: $where) {
       id
       title
+      instagramLink
       themeColor {
         hex
       }

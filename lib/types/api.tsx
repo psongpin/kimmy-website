@@ -1360,6 +1360,7 @@ export type LinkPost = Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars["ID"];
+  instagramLink?: Maybe<Scalars["String"]>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars["DateTime"]>;
   /** User that last published this document */
@@ -1447,6 +1448,7 @@ export type LinkPostConnection = {
 
 export type LinkPostCreateInput = {
   createdAt?: InputMaybe<Scalars["DateTime"]>;
+  instagramLink?: InputMaybe<Scalars["String"]>;
   redirectLink?: InputMaybe<Scalars["String"]>;
   subLinkPosts?: InputMaybe<SubLinkPostCreateManyInlineInput>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
@@ -1524,6 +1526,25 @@ export type LinkPostManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars["ID"]>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars["ID"]>;
+  instagramLink?: InputMaybe<Scalars["String"]>;
+  /** All values containing the given string. */
+  instagramLink_contains?: InputMaybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  instagramLink_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  instagramLink_in?: InputMaybe<Array<Scalars["String"]>>;
+  /** All values that are not equal to given value. */
+  instagramLink_not?: InputMaybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  instagramLink_not_contains?: InputMaybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  instagramLink_not_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are not contained in given list. */
+  instagramLink_not_in?: InputMaybe<Array<Scalars["String"]>>;
+  /** All values not starting with the given string. */
+  instagramLink_not_starts_with?: InputMaybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  instagramLink_starts_with?: InputMaybe<Scalars["String"]>;
   publishedAt?: InputMaybe<Scalars["DateTime"]>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars["DateTime"]>;
@@ -1618,6 +1639,8 @@ export enum LinkPostOrderByInput {
   CreatedAtDesc = "createdAt_DESC",
   IdAsc = "id_ASC",
   IdDesc = "id_DESC",
+  InstagramLinkAsc = "instagramLink_ASC",
+  InstagramLinkDesc = "instagramLink_DESC",
   PublishedAtAsc = "publishedAt_ASC",
   PublishedAtDesc = "publishedAt_DESC",
   RedirectLinkAsc = "redirectLink_ASC",
@@ -1631,6 +1654,7 @@ export enum LinkPostOrderByInput {
 }
 
 export type LinkPostUpdateInput = {
+  instagramLink?: InputMaybe<Scalars["String"]>;
   redirectLink?: InputMaybe<Scalars["String"]>;
   subLinkPosts?: InputMaybe<SubLinkPostUpdateManyInlineInput>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
@@ -1657,6 +1681,7 @@ export type LinkPostUpdateManyInlineInput = {
 };
 
 export type LinkPostUpdateManyInput = {
+  instagramLink?: InputMaybe<Scalars["String"]>;
   redirectLink?: InputMaybe<Scalars["String"]>;
   tags?: InputMaybe<Array<Scalars["String"]>>;
   themeColor?: InputMaybe<ColorInput>;
@@ -1751,6 +1776,25 @@ export type LinkPostWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars["ID"]>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars["ID"]>;
+  instagramLink?: InputMaybe<Scalars["String"]>;
+  /** All values containing the given string. */
+  instagramLink_contains?: InputMaybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  instagramLink_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  instagramLink_in?: InputMaybe<Array<Scalars["String"]>>;
+  /** All values that are not equal to given value. */
+  instagramLink_not?: InputMaybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  instagramLink_not_contains?: InputMaybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  instagramLink_not_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are not contained in given list. */
+  instagramLink_not_in?: InputMaybe<Array<Scalars["String"]>>;
+  /** All values not starting with the given string. */
+  instagramLink_not_starts_with?: InputMaybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  instagramLink_starts_with?: InputMaybe<Scalars["String"]>;
   publishedAt?: InputMaybe<Scalars["DateTime"]>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars["DateTime"]>;

@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
 
 import {
   AvatarFrame,
@@ -50,42 +51,71 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Home: NextPage = () => {
   return (
-    <HomeFrame>
-      <TopContentFrame>
-        <SemiCircle />
-        <AvatarFrame>
-          <Image
-            src="/images/avatar.png"
-            alt="kimifaery"
-            layout="fixed"
-            width={124}
-            height={108}
-            quality={100}
-          />
-        </AvatarFrame>
+    <>
+      <NextSeo
+        title="Kimifaery Website - Home"
+        description="Kimifaery's Personal Website"
+        canonical="https://kimifaery.com/"
+        openGraph={{
+          url: "https://kimifaery.com/",
+          title: "Kimifaery Website - Home",
+          description: "Kimifaery's Personal Website",
+          images: [
+            {
+              url: "https://kimifaery.com/images/kimifaery.png",
+              width: 1200,
+              height: 630,
+              alt: "Kimifaery's Personal Website",
+            },
+          ],
+        }}
+      />
 
-        <Container>
-          <CreatorInfo>
-            <h1>
-              <SparkleLeft width={26} height={26} style={{ marginRight: 10 }} />
-              kimifaery
-              <SparkleRight width={26} height={26} style={{ marginLeft: 10 }} />
-            </h1>
+      <HomeFrame>
+        <TopContentFrame>
+          <SemiCircle />
+          <AvatarFrame>
+            <Image
+              src="/images/avatar.png"
+              alt="kimifaery"
+              layout="fixed"
+              width={124}
+              height={108}
+              quality={100}
+            />
+          </AvatarFrame>
 
-            <p>Content Creator</p>
-          </CreatorInfo>
+          <Container>
+            <CreatorInfo>
+              <h1>
+                <SparkleLeft
+                  width={26}
+                  height={26}
+                  style={{ marginRight: 10 }}
+                />
+                kimifaery
+                <SparkleRight
+                  width={26}
+                  height={26}
+                  style={{ marginLeft: 10 }}
+                />
+              </h1>
 
-          <Links />
-        </Container>
-      </TopContentFrame>
+              <p>Content Creator</p>
+            </CreatorInfo>
 
-      <BottomContentFrame>
-        <GamingSetups />
-        <PromoCodes />
-      </BottomContentFrame>
+            <Links />
+          </Container>
+        </TopContentFrame>
 
-      <Footer />
-    </HomeFrame>
+        <BottomContentFrame>
+          <GamingSetups />
+          <PromoCodes />
+        </BottomContentFrame>
+
+        <Footer />
+      </HomeFrame>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 import {
   FilterTag,
@@ -46,30 +47,59 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const PageLinks: NextPage = () => {
   return (
-    <div>
-      <PageLinksHead>
-        <SemiCircle />
+    <>
+      <NextSeo
+        title="Kimifaery Website - Links"
+        description="Kimifaery's Personal Website"
+        canonical="https://kimifaery.com/links/"
+        openGraph={{
+          url: "https://kimifaery.com/links/",
+          title: "Kimifaery Website - Links",
+          description: "Kimifaery's Personal Website",
+          images: [
+            {
+              url: "https://kimifaery.com/images/kimifaery.png",
+              width: 1200,
+              height: 630,
+              alt: "Kimifaery's Personal Website",
+            },
+          ],
+        }}
+      />
 
-        <p>
-          <Link href="/">
-            <a>
-              <SparkleLeft width={45} height={45} style={{ marginRight: 10 }} />
-              kimifaery
-              <SparkleRight width={45} height={45} style={{ marginLeft: 10 }} />
-            </a>
-          </Link>
-        </p>
-        <h1>Links</h1>
-      </PageLinksHead>
+      <div>
+        <PageLinksHead>
+          <SemiCircle />
 
-      <Container css={{ marginBottom: 40 }}>
-        <SearchPost />
-        <FilterTag />
-        <LinkPosts />
-      </Container>
+          <p>
+            <Link href="/">
+              <a>
+                <SparkleLeft
+                  width={45}
+                  height={45}
+                  style={{ marginRight: 10 }}
+                />
+                kimifaery
+                <SparkleRight
+                  width={45}
+                  height={45}
+                  style={{ marginLeft: 10 }}
+                />
+              </a>
+            </Link>
+          </p>
+          <h1>Links</h1>
+        </PageLinksHead>
 
-      <Footer />
-    </div>
+        <Container css={{ marginBottom: 40 }}>
+          <SearchPost />
+          <FilterTag />
+          <LinkPosts />
+        </Container>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 
