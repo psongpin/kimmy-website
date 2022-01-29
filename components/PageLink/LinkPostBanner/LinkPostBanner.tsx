@@ -12,6 +12,7 @@ import {
   BannerContentTop,
   BannerFrame,
   BannerImageFrame,
+  BannerViewLink,
 } from "./styles";
 
 type LinkPostBannerProps = {
@@ -65,16 +66,18 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
         }`}</BannerContentSubLinkNum>
 
         {viewUrl && (
-          <Link href={viewUrl}>
-            <a>
-              <Button
-                size={{ "@initial": "sm", "@md": "md" }}
-                css={{ width: "100%", maxWidth: 320 }}
-              >
-                View Setup
-              </Button>
-            </a>
-          </Link>
+          <BannerViewLink>
+            <Link href={viewUrl}>
+              <a>
+                <Button
+                  size={{ "@initial": "sm", "@md": "md" }}
+                  css={{ width: "100%", maxWidth: 320 }}
+                >
+                  View Setup
+                </Button>
+              </a>
+            </Link>
+          </BannerViewLink>
         )}
       </BannerContentFrame>
     </BannerFrame>

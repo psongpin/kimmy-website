@@ -130,3 +130,9 @@ export const BannerContentAvatar = styled("div", {
     width: 80,
   },
 });
+
+export const BannerViewLink = styled("div", {
+  a: {
+    textDecoration: "none",
+  },
+});
