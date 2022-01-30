@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
+import { motion, Variants } from "framer-motion";
 
 import {
   AvatarFrame,
@@ -30,6 +31,22 @@ type QueryData = {
   couponsConnection: Query["couponsConnection"];
 };
 
+const variants: Variants = {
+  hidden: {
+    y: -20,
+    opacity: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
@@ -74,46 +91,97 @@ const Home: NextPage = () => {
       <HomeFrame>
         <TopContentFrame>
           <SemiCircle />
-          <AvatarFrame>
-            <Image
-              src="/images/avatar.png"
-              alt="kimifaery"
-              layout="fixed"
-              width={124}
-              height={108}
-              quality={100}
-            />
-          </AvatarFrame>
+
+          <motion.div
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <AvatarFrame>
+              <Image
+                src="/images/avatar.png"
+                alt="kimifaery"
+                layout="fixed"
+                width={124}
+                height={108}
+                quality={100}
+              />
+            </AvatarFrame>
+          </motion.div>
 
           <Container>
             <CreatorInfo>
-              <h1>
-                <SparkleLeft
-                  width={26}
-                  height={26}
-                  style={{ marginRight: 10 }}
-                />
-                kimifaery
-                <SparkleRight
-                  width={26}
-                  height={26}
-                  style={{ marginLeft: 10 }}
-                />
-              </h1>
+              <motion.div
+                variants={variants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <h1>
+                  <SparkleLeft
+                    width={26}
+                    height={26}
+                    style={{ marginRight: 10 }}
+                  />
+                  kimifaery
+                  <SparkleRight
+                    width={26}
+                    height={26}
+                    style={{ marginLeft: 10 }}
+                  />
+                </h1>
+              </motion.div>
 
-              <p>Content Creator</p>
+              <motion.div
+                variants={variants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <p>Content Creator</p>
+              </motion.div>
             </CreatorInfo>
 
-            <Links />
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Links />
+            </motion.div>
           </Container>
         </TopContentFrame>
 
         <BottomContentFrame>
-          <GamingSetups />
-          <PromoCodes />
+          <motion.div
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <GamingSetups />
+          </motion.div>
+
+          <motion.div
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <PromoCodes />
+          </motion.div>
         </BottomContentFrame>
 
-        <Footer />
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Footer />
+        </motion.div>
       </HomeFrame>
     </>
   );
