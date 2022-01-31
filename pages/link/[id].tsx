@@ -121,7 +121,10 @@ const PageLink: NextPage = () => {
                 }
                 viewUrl={data.linkPost.instagramLink || ""}
               />
-              <SubLinks subLinkPosts={data.linkPost.subLinkPosts} />
+              <SubLinks
+                subLinkPosts={data.linkPost.subLinkPosts}
+                themeColor={(data?.linkPost?.themeColor?.hex as string) || ""}
+              />
             </>
           )}
         </Container>

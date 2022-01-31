@@ -8,9 +8,13 @@ import SubLinkPost from "./SubLinkPost";
 
 type SubLinkPostsProps = {
   subLinkPosts: SubLinkPostType[];
+  themeColor: string;
 };
 
-const SubLinkPosts: React.FC<SubLinkPostsProps> = ({ subLinkPosts }) => {
+const SubLinkPosts: React.FC<SubLinkPostsProps> = ({
+  subLinkPosts,
+  themeColor,
+}) => {
   return (
     <div>
       {subLinkPosts.length > 0 ? (
@@ -24,6 +28,7 @@ const SubLinkPosts: React.FC<SubLinkPostsProps> = ({ subLinkPosts }) => {
                 title={subLinkPost.title}
                 thumbnailUrl={subLinkPost.thumbnail.url}
                 tags={subLinkPost.tags}
+                themeColor={themeColor}
               />
             ))}
           </LinksGrid>

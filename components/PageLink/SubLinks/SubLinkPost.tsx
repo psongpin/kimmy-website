@@ -19,6 +19,7 @@ type SubLinkPostProps = {
   title: string;
   thumbnailUrl: string;
   tags: string[];
+  themeColor: string;
 };
 
 const tagMarks: Record<string, string> = {
@@ -33,6 +34,7 @@ const SubLinkPost: React.FC<SubLinkPostProps> = ({
   title,
   thumbnailUrl,
   tags,
+  themeColor,
 }) => {
   return (
     <LinkPostFrame>
@@ -48,7 +50,7 @@ const SubLinkPost: React.FC<SubLinkPostProps> = ({
             />
           </LinkPostImage>
 
-          <LinkPostInfo>
+          <LinkPostInfo css={{ backgroundColor: themeColor || "$babyPurple" }}>
             <LinkPostTitle>{title}</LinkPostTitle>
           </LinkPostInfo>
 
