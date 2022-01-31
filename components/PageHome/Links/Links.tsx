@@ -72,7 +72,7 @@ const Links: React.FC = () => {
 
       <LinkGridItem>
         <a
-          href="https://www.tiktok.com/@kimifaery"
+          href="https://www.hoyolab.com/accountCenter/postList?id=40964052"
           target="_blank"
           rel="noopener noreferrer"
         >
