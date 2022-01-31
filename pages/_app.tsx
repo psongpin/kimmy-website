@@ -1,6 +1,8 @@
 import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import { DefaultSeo } from "next-seo";
+import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 import { AppFrame, ContentFrame } from "components/AppLayout";
 import { useApollo } from "lib/apolloClient";
@@ -11,6 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
 
   const apolloClient = useApollo(pageProps);
+  const router = useRouter();
+
+  console.log(router);
 
   return (
     <>
@@ -18,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <AppFrame>
           <ContentFrame>
             <DefaultSeo {...seoConfig} />
-            <Component {...pageProps} />
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.pathname} />
+            </AnimatePresence>
           </ContentFrame>
         </AppFrame>
       </ApolloProvider>

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { useQuery } from "@apollo/client";
 import { NextSeo } from "next-seo";
+import { motion } from "framer-motion";
 
 import { Container, Loader } from "components/common";
 import Footer from "components/Footer";
@@ -92,7 +93,11 @@ const PageLink: NextPage = () => {
         }}
       />
 
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <Navigation
           backgroundColor={(data?.linkPost?.themeColor?.hex as string) || ""}
         />
@@ -130,7 +135,7 @@ const PageLink: NextPage = () => {
         </Container>
 
         <Footer />
-      </div>
+      </motion.div>
     </>
   );
 };

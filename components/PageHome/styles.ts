@@ -1,7 +1,7 @@
 import { styled } from "stitches.config";
 import { motion } from "framer-motion";
 
-export const HomeFrame = styled("div", {
+export const HomeFrame = styled(motion.div, {
   width: "100%",
   maxWidth: "$sm",
   minHeight: "100vh",

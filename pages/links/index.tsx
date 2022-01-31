@@ -69,7 +69,11 @@ const PageLinks: NextPage = () => {
         }}
       />
 
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <PageLinksHead>
           <SemiCircle />
 
@@ -104,7 +108,7 @@ const PageLinks: NextPage = () => {
         </Container>
 
         <Footer />
-      </div>
+      </motion.div>
     </>
   );
 };
