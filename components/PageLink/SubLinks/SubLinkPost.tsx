@@ -12,6 +12,7 @@ import {
   Tag,
   TagsFrame,
 } from "components/PageLinks/LinkPosts/styles";
+import { fadeDownVariants } from "lib/animations/variants";
 
 type SubLinkPostProps = {
   id: string;
@@ -37,7 +38,12 @@ const SubLinkPost: React.FC<SubLinkPostProps> = ({
   themeColor,
 }) => {
   return (
-    <LinkPostFrame>
+    <LinkPostFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Link href={redirectLink || `/`}>
         <a>
           <LinkPostImage>

@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 
 import { Container, Flexbox } from "components/common";
 import { ChevronLeft } from "components/common/Icon";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import { NavigationFrame, NavigationText } from "./styles";
 
@@ -26,7 +27,13 @@ const Navigation: React.FC<NavigationProps> = ({ backgroundColor }) => {
             height: "100%",
           }}
         >
-          <NavigationText onClick={() => router.back()}>
+          <NavigationText
+            variants={fadeDownVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            onClick={() => router.back()}
+          >
             <ChevronLeft width={24} height={24} style={{ marginRight: 12 }} />
             <span>Back</span>
           </NavigationText>

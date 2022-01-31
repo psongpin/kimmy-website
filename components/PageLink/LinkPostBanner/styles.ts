@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
-export const BannerFrame = styled("div", {
+export const BannerFrame = styled(motion.div, {
   width: "100%",
   maxWidth: 1100,
   minHeight: 180,

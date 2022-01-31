@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Button } from "components/common";
 import { SparkleLeft, SparkleRight } from "components/common/Icon";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import {
   BannerContentAvatar,
@@ -31,7 +32,12 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
   viewUrl,
 }) => {
   return (
-    <BannerFrame>
+    <BannerFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <BannerImageFrame>
         <Image
           src={thumbnailUrl}
