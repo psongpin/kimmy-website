@@ -91,8 +91,8 @@ const Home: NextPage = () => {
               src="/images/avatar.png"
               alt="kimifaery"
               layout="fixed"
-              width={124}
-              height={108}
+              width={130}
+              height={130}
               quality={100}
             />
           </AvatarFrame>

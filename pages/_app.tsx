@@ -15,8 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps);
   const router = useRouter();
 
-  console.log(router);
-
   return (
     <>
       <ApolloProvider client={apolloClient}>

@@ -63,6 +63,7 @@ const LinkPostBanner: React.FC<LinkPostBannerProps> = ({
               layout="intrinsic"
               width={90}
               height={90}
+              quality={100}
             />
           </BannerContentAvatar>
         </BannerContentTop>
