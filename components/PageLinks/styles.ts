@@ -16,6 +16,21 @@ export const PageLinksHead = styled("div", {
     height: 280,
   },
 
+  svg: {
+    width: 16,
+    height: 16,
+
+    "@md": {
+      width: 30,
+      height: 30,
+    },
+
+    "@lg": {
+      width: 45,
+      height: 45,
+    },
+  },
+
   h1: {
     color: "$yellow",
     fontSize: 20,
@@ -53,9 +68,7 @@ export const PageLinksHead = styled("div", {
 export const SemiCircle = styled("div", {
   backgroundColor: "$purple",
   backgroundImage: "url(/images/topSparkles.png)",
-  backgroundRepeat: "no-repeat",
-  backgroundPositionX: "center",
-  backgroundPositionY: "90%",
+  backgroundRepeat: "repeat",
   height: 400,
   borderRadius: "100%",
   position: "absolute",

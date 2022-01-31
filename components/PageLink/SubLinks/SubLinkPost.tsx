@@ -25,7 +25,7 @@ type SubLinkPostProps = {
 const tagMarks: Record<string, string> = {
   Favorites: `❤️`,
   "Gaming Setup": `🎮`,
-  Partnerships: `👍`,
+  Partnerships: `🌹`,
   "Must Haves": `⭐️`,
 };
 

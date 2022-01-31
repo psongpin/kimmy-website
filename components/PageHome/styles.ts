@@ -29,9 +29,7 @@ export const TopContentFrame = styled("div", {
 export const SemiCircle = styled("div", {
   backgroundColor: "$purple",
   backgroundImage: "url(/images/topSparkles.png)",
-  backgroundRepeat: "no-repeat",
-  backgroundPositionX: "center",
-  backgroundPositionY: "90%",
+  backgroundRepeat: "repeat",
   height: 400,
   marginX: -22,
   marginTop: -280,

@@ -74,17 +74,9 @@ const PageLinks: NextPage = () => {
           <p>
             <Link href="/">
               <a>
-                <SparkleLeft
-                  width={45}
-                  height={45}
-                  style={{ marginRight: 10 }}
-                />
+                <SparkleLeft style={{ marginRight: 10 }} />
                 kimifaery
-                <SparkleRight
-                  width={45}
-                  height={45}
-                  style={{ marginLeft: 10 }}
-                />
+                <SparkleRight style={{ marginLeft: 10 }} />
               </a>
             </Link>
           </p>
