@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { Container, Loader, CarouselLoaderOverlay } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import GamingSetup from "./GamingSetup";
 import {
@@ -38,7 +39,14 @@ const GamingSetups: React.FC = () => {
   return (
     <GamingSetupsSection>
       <Container>
-        <GamingSetupsHeading>Gaming Setups</GamingSetupsHeading>
+        <GamingSetupsHeading
+          variants={fadeDownVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          Gaming Setups
+        </GamingSetupsHeading>
       </Container>
 
       <GamingSetupsCarouselFrame>

@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 import {
   AvatarFrame,
@@ -25,28 +25,13 @@ import {
 } from "lib/types/api";
 import { GET_GAMING_SETUPS } from "lib/queries/posts";
 import { GET_COUPONS } from "lib/queries/promo";
+import { fadeDownVariants } from "lib/animations/variants";
 
 type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
   couponsConnection: Query["couponsConnection"];
 };
 
-const variants: Variants = {
-  hidden: {
-    y: -20,
-    opacity: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
@@ -92,59 +77,55 @@ const Home: NextPage = () => {
         <TopContentFrame>
           <SemiCircle />
 
-          <motion.div
-            variants={variants}
+          <AvatarFrame
+            variants={fadeDownVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <AvatarFrame>
-              <Image
-                src="/images/avatar.png"
-                alt="kimifaery"
-                layout="fixed"
-                width={124}
-                height={108}
-                quality={100}
-              />
-            </AvatarFrame>
-          </motion.div>
+            <Image
+              src="/images/avatar.png"
+              alt="kimifaery"
+              layout="fixed"
+              width={124}
+              height={108}
+              quality={100}
+            />
+          </AvatarFrame>
 
           <Container>
             <CreatorInfo>
-              <motion.div
-                variants={variants}
+              <motion.h1
+                variants={fadeDownVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <h1>
-                  <SparkleLeft
-                    width={26}
-                    height={26}
-                    style={{ marginRight: 10 }}
-                  />
-                  kimifaery
-                  <SparkleRight
-                    width={26}
-                    height={26}
-                    style={{ marginLeft: 10 }}
-                  />
-                </h1>
-              </motion.div>
+                <SparkleLeft
+                  width={26}
+                  height={26}
+                  style={{ marginRight: 10 }}
+                />
+                kimifaery
+                <SparkleRight
+                  width={26}
+                  height={26}
+                  style={{ marginLeft: 10 }}
+                />
+              </motion.h1>
 
-              <motion.div
-                variants={variants}
+              <motion.p
+                variants={fadeDownVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <p>Content Creator</p>
-              </motion.div>
+                Content Creator
+              </motion.p>
             </CreatorInfo>
 
             <motion.div
-              variants={variants}
+              variants={fadeDownVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -155,27 +136,12 @@ const Home: NextPage = () => {
         </TopContentFrame>
 
         <BottomContentFrame>
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <GamingSetups />
-          </motion.div>
-
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <PromoCodes />
-          </motion.div>
+          <GamingSetups />
+          <PromoCodes />
         </BottomContentFrame>
 
         <motion.div
-          variants={variants}
+          variants={fadeDownVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

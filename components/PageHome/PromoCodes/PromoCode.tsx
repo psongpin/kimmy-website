@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { ExternalLink } from "components/common/Icon";
 import { Button } from "components/common";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import { Discount, PromoCodeFrame, PromoCodeInfo, SponsorInfo } from "./styles";
 
@@ -54,7 +55,12 @@ const PromoCode: React.FC<PromoCodeProps> = ({
   title,
 }) => {
   return (
-    <PromoCodeFrame>
+    <PromoCodeFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <PromoCodeInfo>
         <Discount>
           <p>{discountText}</p>

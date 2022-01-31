@@ -1,10 +1,11 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
 export const GamingSetupsSection = styled("section", {
   paddingTop: 40,
 });
 
-export const GamingSetupsHeading = styled("h2", {
+export const GamingSetupsHeading = styled(motion.h2, {
   color: "$pink",
   fontSize: 20,
   fontFamily: "$fredokaOne",
@@ -23,7 +24,7 @@ export const GamingSetupLinkOverlay = styled("div", {
   transition: "all 0.3s ease-in-out",
 });
 
-export const GamingSetupFrame = styled("div", {
+export const GamingSetupFrame = styled(motion.div, {
   width: "100%",
   height: 300,
 

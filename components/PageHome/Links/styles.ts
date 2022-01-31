@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
-export const LinksGrid = styled("div", {
+export const LinksGrid = styled(motion.div, {
   display: "grid",
   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
   columnGap: 30,

@@ -1,17 +1,18 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
 export const PromoCodesSection = styled("section", {
   paddingY: 40,
 });
 
-export const PromoCodesHeading = styled("h2", {
+export const PromoCodesHeading = styled(motion.h2, {
   color: "$pink",
   fontSize: 20,
   fontFamily: "$fredokaOne",
   marginBottom: 18,
 });
 
-export const PromoCodeFrame = styled("div", {
+export const PromoCodeFrame = styled(motion.div, {
   paddingX: 20,
   paddingY: 16,
   backgroundColor: "$white",

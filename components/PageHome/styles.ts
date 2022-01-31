@@ -1,4 +1,5 @@
 import { styled } from "stitches.config";
+import { motion } from "framer-motion";
 
 export const HomeFrame = styled("div", {
   width: "100%",
@@ -37,7 +38,7 @@ export const SemiCircle = styled("div", {
   borderRadius: "100%",
 });
 
-export const AvatarFrame = styled("div", {
+export const AvatarFrame = styled(motion.div, {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

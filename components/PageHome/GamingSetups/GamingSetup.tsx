@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { ExternalLink } from "components/common/Icon";
 import { Button } from "components/common";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import {
   GamingSetupFrame,
@@ -26,7 +27,12 @@ const GamingSetup: React.FC<GamingSetupProps> = ({
   numOfSubLinkPosts,
 }) => {
   return (
-    <GamingSetupFrame>
+    <GamingSetupFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Link href={redirectLink || `/link/${id}`}>
         <a>
           <Image

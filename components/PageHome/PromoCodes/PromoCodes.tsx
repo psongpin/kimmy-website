@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { Container, CarouselLoaderOverlay, Loader } from "components/common";
 import { GET_COUPONS } from "lib/queries/promo";
 import { Query, QueryCouponsConnectionArgs } from "lib/types/api";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import PromoCode from "./PromoCode";
 import {
@@ -38,7 +39,14 @@ const PromoCodes: React.FC = () => {
   return (
     <PromoCodesSection>
       <Container>
-        <PromoCodesHeading>Promo Codes</PromoCodesHeading>
+        <PromoCodesHeading
+          variants={fadeDownVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          Promo Codes
+        </PromoCodesHeading>
       </Container>
 
       <PromoCodesCarouselFrame>

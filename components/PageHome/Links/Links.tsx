@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { fadeDownVariants } from "lib/animations/variants";
+
 import {
   LinkGridItem,
   LinksGrid,
@@ -10,7 +12,12 @@ import {
 
 const Links: React.FC = () => {
   return (
-    <LinksGrid>
+    <LinksGrid
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <LinkGridItem>
         <Link href="/links">
           <a>
