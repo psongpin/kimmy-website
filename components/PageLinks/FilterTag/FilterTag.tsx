@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { Button } from "components/common";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import { TagsGrid } from "./styles";
 
@@ -21,7 +22,12 @@ const FilterTag: React.FC = () => {
   const tagFromUrl = router.query.tag;
 
   return (
-    <TagsGrid>
+    <TagsGrid
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       {tags.map((tag) => {
         return (
           <Link key={tag.label} href={`/links?tag=${tag.label}`}>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
 export const LinksLoader = styled("div", {
@@ -62,7 +63,7 @@ export const LinkPostOverlay = styled("div", {
   transition: "all 0.3s ease-in-out",
 });
 
-export const LinkPostFrame = styled("div", {
+export const LinkPostFrame = styled(motion.div, {
   "& > a": {
     display: "flex",
     flexDirection: "column",

@@ -140,14 +140,7 @@ const Home: NextPage = () => {
           <PromoCodes />
         </BottomContentFrame>
 
-        <motion.div
-          variants={fadeDownVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <Footer />
-        </motion.div>
+        <Footer />
       </HomeFrame>
     </>
   );

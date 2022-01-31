@@ -4,6 +4,7 @@ import qs from "query-string";
 
 import { Button } from "components/common";
 import { Search } from "components/common/Icon";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import { SearchError, SearchPostFrame } from "./style";
 
@@ -33,7 +34,12 @@ const SearchPost: React.FC = () => {
   });
 
   return (
-    <SearchPostFrame>
+    <SearchPostFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="search"></label>

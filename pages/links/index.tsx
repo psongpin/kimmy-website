@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
+import { motion } from "framer-motion";
 
 import {
   FilterTag,
@@ -15,6 +16,7 @@ import { SparkleLeft, SparkleRight } from "components/common/Icon";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
+import { fadeDownVariants } from "lib/animations/variants";
 
 type QueryData = {
   linkPostsConnection: Query["linkPostsConnection"];
@@ -71,7 +73,12 @@ const PageLinks: NextPage = () => {
         <PageLinksHead>
           <SemiCircle />
 
-          <p>
+          <motion.p
+            variants={fadeDownVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <Link href="/">
               <a>
                 <SparkleLeft style={{ marginRight: 10 }} />
@@ -79,8 +86,15 @@ const PageLinks: NextPage = () => {
                 <SparkleRight style={{ marginLeft: 10 }} />
               </a>
             </Link>
-          </p>
-          <h1>Links</h1>
+          </motion.p>
+          <motion.h1
+            variants={fadeDownVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            Links
+          </motion.h1>
         </PageLinksHead>
 
         <Container css={{ marginBottom: 40 }}>

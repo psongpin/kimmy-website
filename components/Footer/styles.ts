@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
-export const FooterFrame = styled("footer", {
+export const FooterFrame = styled(motion.footer, {
   textAlign: "center",
   color: "$purple",
   paddingY: 28,

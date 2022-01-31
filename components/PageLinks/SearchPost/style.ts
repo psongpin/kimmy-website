@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
-export const SearchPostFrame = styled("div", {
+export const SearchPostFrame = styled(motion.div, {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ExternalLink } from "components/common/Icon";
 import { Button } from "components/common";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import {
   LinkPostFrame,
@@ -40,7 +41,12 @@ const LinkPost: React.FC<LinkPostProps> = ({
   tags,
 }) => {
   return (
-    <LinkPostFrame>
+    <LinkPostFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Link href={redirectLink || `/link/${id}`}>
         <a>
           <LinkPostImage>

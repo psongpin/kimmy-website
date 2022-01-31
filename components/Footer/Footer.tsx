@@ -1,5 +1,6 @@
 import { Container } from "components/common";
 import { Facebook, Instagram, Mail } from "components/common/Icon";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import { CopyrightText, FooterFrame, FooterLink, FooterLinks } from "./styles";
 
@@ -20,7 +21,12 @@ const links = [
 
 const Footer: React.FC = () => {
   return (
-    <FooterFrame>
+    <FooterFrame
+      variants={fadeDownVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Container>
         <FooterLinks>
           {links.map((link) => (

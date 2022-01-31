@@ -1,9 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 import { Button, Flexbox, Loader } from "components/common";
 import { Query, QueryLinkPostsArgs } from "lib/types/api";
 import { GET_LINK_POSTS } from "lib/queries/posts";
+import { fadeDownVariants } from "lib/animations/variants";
 
 import LinkPost from "./LinkPost";
 import { LinkPostError, LinksGrid, LinksLoader } from "./styles";
@@ -67,15 +69,22 @@ const LinkPosts: React.FC = () => {
               </LinksGrid>
 
               {data.linkPostsConnection.pageInfo.hasNextPage && !loading && (
-                <Flexbox
-                  css={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginTop: 20,
-                  }}
+                <motion.div
+                  variants={fadeDownVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                 >
-                  <Button onClick={onLoadMore}>Load more post</Button>
-                </Flexbox>
+                  <Flexbox
+                    css={{
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: 20,
+                    }}
+                  >
+                    <Button onClick={onLoadMore}>Load more post</Button>
+                  </Flexbox>
+                </motion.div>
               )}
             </>
           ) : (

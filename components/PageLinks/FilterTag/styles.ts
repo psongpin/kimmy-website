@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 
-export const TagsGrid = styled("div", {
+export const TagsGrid = styled(motion.div, {
   display: "flex",
   flexWrap: "wrap",
   alignItems: "center",
